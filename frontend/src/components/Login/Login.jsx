@@ -12,6 +12,10 @@ const Login = (props) => {
                 
                 <input name='password' type='password' placeholder='Password'></input>
                 
+                <div className={style.checkboxContainer}>
+                    <input name='rememberMe' className={style.checkbox} type='checkbox'/> Remember me
+                </div>
+
                 <button>Confirm</button>
             </form>
 
