@@ -1,0 +1,75 @@
+.loginWindow {
+    background-color: white;
+
+    margin: 10% 30%;
+    padding: 2% 0;
+
+    display: inline-block;
+
+    text-align: center;
+
+    border-radius: 3rem;
+}
+
+h2 {
+    text-align: center;
+
+    margin: 0 0 0.5em 0;
+
+    
+}
+
+input {
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    margin: 0 0 0.5em 0;
+    padding: 1rem;
+
+    border: #3c315b 0.15rem solid;
+    border-radius: 3rem;
+
+    width: 50%;
+}
+
+input:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
+}
+
+button {
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    padding: 1rem;
+
+    margin: 0 0 1.5em 0;
+
+    width: 55%;
+
+    font-size: 1.5rem;
+}
+
+button:hover {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+}
+
+button:hover, button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+a {
+    color: #ab9ff2;
+}
+
+a:hover, a:active {
+    color: #e2dffe; 
+}
