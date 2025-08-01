@@ -1,0 +1,122 @@
+header {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 10%;
+
+    text-align: center;
+}
+
+.logo img {
+    width: 5rem;
+}
+
+.name {
+    width: 80%;
+    
+    padding: 0 2%;
+
+    text-align: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.logIn {
+    width: 10%;
+
+    text-align: center;
+}
+
+.button {
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    padding: 1rem;
+
+    font-size: 1.5rem;
+}
+
+.button:hover {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+}
+
+.button:hover, button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+@media (max-width: 1200px) {
+    .name {
+        width: 74%;
+    }
+
+    .logIn {
+        width: 16%;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo {
+        width: 16%;
+    }
+
+    .logo img {
+        width: 4rem;
+    }
+
+    .name {
+        width: 68%;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        width: 12%;
+    }
+
+    .logo img {
+        width: 3rem;
+    }
+
+    .name {
+        width: 72%;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 10%;
+    }
+
+    .logo img {
+        width: 2rem;
+    }
+
+    .name {
+        width: 70%;
+    }
+
+    .logIn {
+        width: 20%;
+    }
+
+    .button {
+        font-size: 0.5rem;
+    }
+}

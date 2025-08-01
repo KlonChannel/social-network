@@ -11,7 +11,7 @@
     border-radius: 3rem;
 }
 
-h2 {
+.h2 {
     text-align: center;
 
     margin: 0 0 0.5em 0;
@@ -37,7 +37,7 @@ input:focus {
     outline: #ab9ff2 0.15rem solid;
 }
 
-button {
+.button {
     border: #ab9ff2;
     border-radius: 3rem;
 
@@ -52,13 +52,13 @@ button {
     font-size: 1.5rem;
 }
 
-button:hover {
+.button:hover {
     background-color: #e2dffe; 
     
     cursor: pointer;
 }
 
-button:hover, button:active {
+.button:hover, .button:active {
     background-color: #e2dffe; 
     
     cursor: pointer;
@@ -95,7 +95,7 @@ input {
     font-size: 1rem;
 }
 
-button {
+.button {
     font-size: 1rem;
 }
 }
@@ -109,7 +109,7 @@ input {
     font-size: 1rem;
 }
 
-button {
+.button {
     font-size: 1rem;
 }
 }

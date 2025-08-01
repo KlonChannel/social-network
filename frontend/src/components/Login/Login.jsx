@@ -5,7 +5,7 @@ import style from './Login.module.css';
 const Login = (props) => {
     return (
         <div className={style.loginWindow}>
-            <h2>Log in</h2>
+            <h2 className={style.h2}>Log in</h2>
             
             <form>
                 <input name='login' placeholder='Login' />
@@ -16,7 +16,7 @@ const Login = (props) => {
                     <input name='rememberMe' className={style.checkbox} type='checkbox'/> Remember me
                 </div>
 
-                <button>Confirm</button>
+                <button className={style.button}>Confirm</button>
             </form>
 
             No account? <a href='#'>Register</a>

@@ -5,7 +5,7 @@ import style from './Registration.module.css';
 const Registration = (props) => {
     return (
         <div className={style.RegistrationWindow}>
-            <h2>Registration</h2>
+            <h2 className={style.h2}>Registration</h2>
             
             <form>
                 <input name='login' placeholder='Login' />
@@ -14,7 +14,7 @@ const Registration = (props) => {
 
                 <input name='passwordVerification' type='password' placeholder='Repeat your password'></input>
                 
-                <button>Confirm</button>
+                <button className={style.button}>Confirm</button>
             </form>
 
             Do you have an account? <a href='#'>Log in</a>
