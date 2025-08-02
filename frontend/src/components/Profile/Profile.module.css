@@ -1,0 +1,182 @@
+.profile {
+    width: 80%;
+
+    margin: 1em 0;
+}
+
+.profile a {
+    color: #3c315b;
+}
+
+.profile a:hover {
+    color: #ab9ff2;
+    
+    cursor: pointer;
+}
+
+.userInfo {
+    display: flex;
+}
+
+.profileImage {
+    width: 40%;
+}
+
+.profileImage img {
+    width: 100%;
+    height: 100%;
+}
+
+.mainContent {
+    width: 60%;
+
+    padding: 1em;
+}
+
+.name h2 {
+    margin: 0;
+}
+
+.city {
+    display: flex;
+    align-items: center;
+}
+
+.city img {
+    width: 1.5em;
+
+    margin-right: 0.5em;
+}
+
+.messageButton {
+    margin: 1em 0 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.messageButton img {
+    width: 1.5em;
+    
+    margin-right: 0.5em;
+}
+
+.subscribeButton {
+    margin: 0.5em 0 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.subscribeButton img {
+    width: 1.5em;
+    
+    margin-right: 0.5em;
+}
+
+.moreInfo {
+    display: flex;
+}
+
+.contacts {
+    width: 40%;
+}
+
+.contactsHeading {
+    margin: 0.5em 0;
+
+    text-align: center;
+    font-weight: 900;
+}
+
+.about {
+    width: 60%;
+    
+    padding: 1em;
+}
+
+.about img {
+    width: 1.5em;
+}
+
+.aboutHeading {
+    width: 100%;
+    
+    display: flex;
+    align-items: center;
+}
+
+.aboutHeading img{
+    margin-right: 0.5em;
+}
+
+.textAboutUser {
+    text-align: justify;
+}
+
+@media (max-width: 1200px) {
+    .profile {
+        width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+   .profile {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {    
+    .userInfo {
+        display: block;
+    }
+    
+    .profileImage {
+        width: 100%;
+        
+        text-align: center;
+    }
+
+    .profileImage img {
+        width: 50%;
+    }
+
+    .mainContent {
+        margin: 0 10%;
+        padding: 0.5em 0;
+
+        width: 80%;
+    }
+
+    .mainContent h2 {
+        text-align: center;
+    }
+
+    .moreInfo {
+        display: block;
+    }
+
+    .contacts {
+        margin: 0 10%;
+        padding: 0 0 1em;
+
+        width: 80%;
+    }
+
+    .about {
+        margin: 0 10%;
+        padding: 0;
+
+        width: 80%;
+    }
+
+    .aboutHeading {
+        padding: 0.5em;
+    }
+}

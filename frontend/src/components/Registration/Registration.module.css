@@ -75,41 +75,41 @@ a:hover, a:active {
 }
 
 @media (max-width: 1200px) {
-  .RegistrationWindow {
-    margin: 5% 30%;
-}
+    .RegistrationWindow {
+        margin: 5% 30%;
+    }
 }
 
 @media (max-width: 992px) {
-  .RegistrationWindow {
-    margin: 10% 20%;
-}
+    .RegistrationWindow {
+        margin: 10% 20%;
+    }
 }
 
 @media (max-width: 768px) {
-  .RegistrationWindow {
-    margin: 5% 10%;
-}
+    .RegistrationWindow {
+        margin: 5% 10%;
+    }
 
-input {
-    font-size: 1rem;
-}
+    input {
+        font-size: 1rem;
+    }
 
-.button {
-    font-size: 1rem;
-}
+    .button {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 576px) {
- .RegistrationWindow {
-    margin: 5% 5%;
-}
+    .RegistrationWindow {
+        margin: 5% 5%;
+    }
 
-input {
-    font-size: 1rem;
-}
+    input {
+        font-size: 1rem;
+    }
 
-.button {
-    font-size: 1rem;
-}
+    .button {
+        font-size: 1rem;
+    }
 }

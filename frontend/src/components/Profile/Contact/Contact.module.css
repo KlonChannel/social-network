@@ -1,0 +1,10 @@
+.contactsRef {
+    display: flex;
+    align-items: center;
+}
+
+.contactsRef img {
+    width: 1.5em;
+
+    margin-right: 0.5em;
+}
