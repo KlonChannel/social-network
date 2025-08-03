@@ -2,6 +2,10 @@
     width: 80%;
 
     margin: 1em 0;
+
+    background-color: white;
+
+    border-radius: 2em;
 }
 
 .profile a {
@@ -16,21 +20,35 @@
 
 .userInfo {
     display: flex;
+
+    padding: 1em;
 }
 
 .profileImage {
     width: 40%;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #ab9ff2;
+
+    border-radius: 2em;
+
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
+    box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
 }
 
 .profileImage img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+
+    margin: 0.5em auto; 
 }
 
 .mainContent {
     width: 60%;
 
-    padding: 1em;
+    padding: 1em 1em 1em 2em;
 }
 
 .name h2 {
@@ -76,6 +94,8 @@
 
 .moreInfo {
     display: flex;
+
+    padding: 1em;
 }
 
 .contacts {
@@ -124,13 +144,15 @@
     }
     
     .profileImage {
-        width: 100%;
+        width: 60%;
+
+        margin: 0 auto;
         
         text-align: center;
     }
 
     .profileImage img {
-        width: 50%;
+        width: 60%;
     }
 
     .mainContent {
