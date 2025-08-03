@@ -118,21 +118,7 @@
     .profile {
         width: 85%;
     }
-}
 
-@media (max-width: 992px) {
-   .profile {
-        width: 90%;
-    }
-}
-
-@media (max-width: 768px) {
-    .profile {
-        width: 100%;
-    }
-}
-
-@media (max-width: 576px) {    
     .userInfo {
         display: block;
     }
@@ -166,7 +152,7 @@
         margin: 0 10%;
         padding: 0 0 1em;
 
-        width: 80%;
+        width: 85%;
     }
 
     .about {
@@ -178,5 +164,28 @@
 
     .aboutHeading {
         padding: 0.5em;
+    }
+}
+
+@media (max-width: 992px) {
+   .profile {
+        width: 90%;
+    }
+
+    .profileImage img {
+        width: 60%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .profile {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {    
+    .profileImage img {
+        width: 70%;
     }
 }

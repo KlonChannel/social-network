@@ -7,6 +7,7 @@ import Registration from './components/Registration/Registration';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -18,6 +19,8 @@ const App = () => {
       <main>
         <Profile />
       </main>
+
+      <Footer />
     </div>
   );
 }
