@@ -1,0 +1,136 @@
+.subscribers {
+    width: 80%;
+
+    margin: 1em 0;
+
+    background-color: white;
+
+    border-radius: 2em;
+}
+
+.subscribersHeader {
+    margin-bottom: 0.5em;
+    padding: 1em;
+
+    text-align: center;
+}
+
+.subscribersHeader h2 {
+    margin: 0 0 0.5em 0;
+}
+
+.subscribersHeader form {
+    margin: 0 0 1.5em 0;
+}
+
+.subscribersHeader input {
+    margin: 0 0.5em 0 0;
+    padding: 0.5em;
+}
+
+.menu {
+    width: 70%;
+    padding: 0.3em;
+
+    margin: 0 auto 1.5em auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: #3c315b 3px solid;
+    border-radius: 10em;
+}
+
+.menu a {
+    width: 33%;
+
+    padding: 0.5em 0;
+
+    font-size: 1.5rem;
+    color: #3c315b;
+    text-align: center;
+
+    border-radius: 10em;
+}
+
+.menu a:hover {
+    background-color: #e2dffe;
+    
+    cursor: pointer;
+}
+
+.button {
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    padding: 1rem;
+
+    font-size: 1.5rem;
+}
+
+.button:hover, .button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+@media (max-width: 1200px) {
+    .subscribers {
+        width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    .subscribers {
+        width: 90%;
+    }
+
+    .menu {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .subscribers {
+        width: 100%;
+    }
+
+    .button {
+        padding: 0.5rem;
+
+        font-size: 1rem;
+    }
+
+    .menu {
+        width: 90%;
+    }
+
+    .menu a {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .subscribersHeader input{
+        font-size: 0.75rem;
+    }
+    
+    .button {
+        padding: 0.5rem;
+
+        font-size: 0.75rem;
+    }
+
+    .menu {
+        width: 95%;
+    }
+
+    .menu a {
+        font-size: 0.75rem;
+    }
+}

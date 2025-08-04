@@ -52,12 +52,6 @@ input:focus {
     font-size: 1.5rem;
 }
 
-.button:hover {
-    background-color: #e2dffe; 
-    
-    cursor: pointer;
-}
-
 .button:hover, .button:active {
     background-color: #e2dffe; 
     

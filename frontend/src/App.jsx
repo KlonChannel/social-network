@@ -7,6 +7,7 @@ import Registration from './components/Registration/Registration';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
+import Subscribers from './components/Subscribers/Subscribers';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
       <Menu />
       
       <main>
-        <Profile />
+        <Subscribers />
       </main>
 
       <Footer />

@@ -1,0 +1,135 @@
+.user {
+    width: 90%;
+
+    margin: 0 auto 1em;
+    padding: 0.5em 1em;
+
+    display: flex;
+    align-items: center;
+
+    text-align: left;
+
+    border: #3c315b 3px solid;
+    border-radius: 6em;
+}
+
+.userPhoto {
+    display: flex;
+
+    width: 25%;
+
+    text-align: center;
+
+    background-color: #ab9ff2;
+
+    border-radius: 2em;
+
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
+    box-shadow: 4px 4px 8px 0px rgba(60, 49, 91, 0.63);
+}
+
+.userPhoto img {
+    width: 60%;
+
+    margin: 0.5em auto;
+}
+
+.userInfo {
+    width: 45%;
+
+    padding: 1em;
+
+    display: inline-block;
+}
+
+.userLocation {
+    display: flex;
+    align-items: center;
+}
+
+.userLocation img {
+    width: 1.5em;
+
+    margin-right: 0.5em;
+}
+
+.userName {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.buttons {
+    width: 30%;
+}
+
+.buttons a {
+    color: #3c315b;
+    line-height: 1;
+}
+
+.buttons a:hover {
+    color: #ab9ff2;
+    
+    cursor: pointer;
+}
+
+.messageButton {
+    margin-bottom: 0.5em;
+
+    display: flex;
+    align-items: center;
+}
+
+.messageButton img {
+    width: 1.5em;
+    
+    margin-right: 0.5em;
+}
+
+.subscribeButton {
+    display: flex;
+    align-items: center;
+}
+
+.subscribeButton img {
+    width: 1.5em;
+    
+    margin-right: 0.5em;
+}
+
+@media (max-width: 992px) {
+    .userName {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .userName {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .user {
+        font-size: 0.75rem;
+
+        border-radius: 2em;
+    }
+
+    .userPhoto {
+        width: 100%;
+    }
+
+    .userInfo {
+        width: 60%;
+    }
+
+    .buttons {
+        width: 40%;
+    }
+
+    .userName {
+        font-size: 0.75rem;
+    }
+}
