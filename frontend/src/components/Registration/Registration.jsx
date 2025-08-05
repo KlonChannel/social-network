@@ -7,12 +7,12 @@ const Registration = (props) => {
         <div className={style.RegistrationWindow}>
             <h2 className={style.h2}>Registration</h2>
             
-            <form>
+            <form className={style.registrationForm}>
                 <input name='login' placeholder='Login' />
                 
                 <input name='password' type='password' placeholder='Password'></input>
 
-                <input name='passwordVerification' type='password' placeholder='Repeat your password'></input>
+                <input name='passwordVerification' type='password' placeholder='Repeat password'></input>
                 
                 <button className={style.button}>Confirm</button>
             </form>

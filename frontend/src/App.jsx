@@ -8,6 +8,7 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
 import Subscribers from './components/Subscribers/Subscribers';
+import Posts from './components/Posts/Posts';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
       <Menu />
       
       <main>
-        <Subscribers />
+        <Posts />
+        
       </main>
 
       <Footer />

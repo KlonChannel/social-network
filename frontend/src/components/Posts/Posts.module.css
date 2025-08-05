@@ -1,0 +1,126 @@
+.posts {
+    width: 80%;
+
+    margin: 1em auto;
+}
+
+.postsHeader {
+    margin-bottom: 1em;
+    padding: 1em;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 2em;
+}
+
+.postsHeader h2 {
+    margin: 0 0 0.5em 0;
+}
+
+.postsHeader form {
+    margin: 0 0 1.5em 0;
+}
+
+.postsForm textarea {
+    resize: none;
+    width: 75%;
+    height: 6em;
+    
+    margin: 0 0.5em 0 0;
+    padding: 0.5em;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    border: #3c315b 0.15rem solid;
+}
+
+.postsForm textarea:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
+}
+
+.fileUpload {
+    margin: 1em 0;
+}
+
+.fileUpload input {
+    font-size: 1.5rem;
+}
+
+.fileUpload input::file-selector-button {
+    margin-right: 0.5em;
+    padding: 0.5em;
+
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+}
+
+.fileUpload input::file-selector-button:hover, .fileUpload input::file-selector-button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+}
+
+.button {
+    width: 75%;
+
+    margin-top: 0.5em;
+    padding: 1rem;
+
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    font-size: 1.5rem;
+}
+
+.button:hover, .button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+@media (max-width: 1200px) {
+    .posts {
+        width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+    .posts {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .posts {
+        width: 100%;
+    }
+    
+    .postsForm textarea {
+        font-size: 1rem;
+    }
+
+    .fileUpload input {
+        font-size: 1rem;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .fileUpload input {
+        font-size: 0.75rem;
+    }
+}

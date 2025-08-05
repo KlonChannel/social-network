@@ -7,7 +7,7 @@ const Login = (props) => {
         <div className={style.loginWindow}>
             <h2 className={style.h2}>Log in</h2>
             
-            <form>
+            <form className={style.loginForm}>
                 <input name='login' placeholder='Login' />
                 
                 <input name='password' type='password' placeholder='Password'></input>

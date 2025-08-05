@@ -24,8 +24,21 @@
 }
 
 .subscribersHeader input {
+    width: 50%;
+    
     margin: 0 0.5em 0 0;
     padding: 0.5em;
+
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    border: #3c315b 0.15rem solid;
+    border-radius: 3rem;
+}
+
+.subscribersHeader input:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
 }
 
 .menu {
@@ -56,6 +69,8 @@
 
 .menu a:hover {
     background-color: #e2dffe;
+
+    color: #3c315b;
     
     cursor: pointer;
 }
@@ -98,6 +113,10 @@
 @media (max-width: 768px) {
     .subscribers {
         width: 100%;
+    }
+
+    .subscribersHeader input{
+        font-size: 1rem;
     }
 
     .button {

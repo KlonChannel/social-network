@@ -19,7 +19,7 @@
     
 }
 
-input {
+.registrationForm input {
     font-size: 1.5rem;
     color: #3c315b;
 
@@ -32,7 +32,7 @@ input {
     width: 50%;
 }
 
-input:focus {
+.registrationForm input:focus {
     border: #3c315b 0.15rem solid;
     outline: #ab9ff2 0.15rem solid;
 }
@@ -85,7 +85,7 @@ a:hover, a:active {
         margin: 5% 10%;
     }
 
-    input {
+    .registrationForm input {
         font-size: 1rem;
     }
 
@@ -99,7 +99,7 @@ a:hover, a:active {
         margin: 5% 5%;
     }
 
-    input {
+    .registrationForm input {
         font-size: 1rem;
     }
 

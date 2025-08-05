@@ -37,6 +37,8 @@ nav {
 
 .buttonsArea a:hover {
     background-color: #e2dffe;
+
+    color: #3c315b;
     
     cursor: pointer;
 }

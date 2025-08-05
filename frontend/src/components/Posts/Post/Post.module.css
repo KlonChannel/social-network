@@ -1,0 +1,126 @@
+.post {
+    margin: 2em 0 0;
+    padding: 1em;
+
+    background-color: white;
+
+    border-radius: 2em;
+}
+
+.postAuthor {
+    margin: -1em -1em 1em;
+    padding: 1em;
+
+    display: flex;
+
+    border-bottom: #3c315b 3px solid;
+}
+
+.userPhoto {
+    width: 15%;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #ab9ff2;
+
+    border-radius: 1em;
+}
+
+.userPhoto img {
+    width: 70%;
+
+    margin: 0.5em auto; 
+}
+
+.userName {
+    width: auto;
+
+    margin: 0 1em;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.date {
+    width: auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.postImage {
+    margin: 1em;
+
+    text-align: center;
+}
+
+.postImage img {
+    width: 30%;
+
+    padding: 1em;
+
+    background-color: #ab9ff2;
+
+    border-radius: 2em;
+}
+
+.postText {
+    margin: 1em;
+
+    text-align: justify;
+    text-indent: 1.5em;
+    overflow-wrap: break-word;
+}
+
+.likes {
+    margin: 1em;
+
+    display: flex;
+    align-items: center;
+}
+
+.likes img {
+    width: 2.25em;
+    
+    margin-right: 0.5em;
+}
+
+@media (max-width: 1200px) {
+    .userPhoto {
+        width: 20%;
+    }
+}
+
+@media (max-width: 992px) {
+    .userPhoto {
+        width: 25%;
+    }
+
+    .userName {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .userPhoto {
+        width: 30%;
+    }
+
+    .likes img {
+        width: 1.5em;
+    }
+
+    .userName {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .postImage img {
+        width: 60%;
+    }
+}

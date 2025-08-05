@@ -15,11 +15,9 @@
     text-align: center;
 
     margin: 0 0 0.5em 0;
-
-    
 }
 
-input {
+.loginForm input {
     font-size: 1.5rem;
     color: #3c315b;
 
@@ -32,7 +30,7 @@ input {
     width: 50%;
 }
 
-input:focus {
+.loginForm input:focus {
     border: #3c315b 0.15rem solid;
     outline: #ab9ff2 0.15rem solid;
 }
@@ -41,7 +39,7 @@ input:focus {
     margin-bottom: 0.5em;
 }
 
-.checkbox {
+.checkboxContainer input{
     width: auto;
 
     margin-right: 0.2em;
@@ -97,7 +95,7 @@ a:hover, a:active {
         margin: 7% 10%;
     }
 
-    input {
+    .loginForm input {
         font-size: 1rem;
     }
 
@@ -111,7 +109,7 @@ a:hover, a:active {
         margin: 7% 5%;
     }
 
-    input {
+    .loginForm input {
         font-size: 1rem;
     }
 
