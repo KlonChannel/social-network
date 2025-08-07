@@ -1,0 +1,68 @@
+.dialogs h2 {
+    margin: 0 0 0.5em;
+}
+
+.dialogs form {
+    margin: 0 0 2em;
+}
+
+.dialogs input {
+    width: 50%;
+    
+    margin: 0 0.5em 0 0;
+    padding: 0.5em;
+
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    border: #3c315b 0.15rem solid;
+    border-radius: 3rem;
+}
+
+.dialogs input:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
+}
+
+.button {
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    padding: 1rem;
+
+    font-size: 1.5rem;
+}
+
+.button:hover, .button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+@media (max-width: 768px) {
+    .dialogs input{
+        font-size: 1rem;
+    }
+
+    .button {
+        padding: 0.5rem;
+
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .dialogs input{
+        font-size: 0.75rem;
+    }
+    
+    .button {
+        padding: 0.5rem;
+
+        font-size: 0.75rem;
+    }
+}

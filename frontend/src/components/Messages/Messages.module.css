@@ -1,0 +1,31 @@
+.messages {
+    width: 80%;
+
+    margin: 1em 0;
+    padding: 1em;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 2em;
+}
+
+@media (max-width: 1200px) {
+    .messages {
+        width: 85%;
+    }
+}
+
+@media (max-width: 992px) {
+   .messages {
+        width: 90%;
+        min-height: 65vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .messages {
+        width: 100%;
+    }
+}

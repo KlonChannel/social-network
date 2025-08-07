@@ -1,0 +1,26 @@
+.message {
+    text-align: left;
+}
+
+.ourMessage {
+    text-align: right;
+}
+
+.messageText {
+    width: auto;
+    max-width: 80%;
+
+    margin-bottom: 0.5em;
+    padding: 1em;
+
+    display: inline-block;
+
+    text-align: justify;
+
+    border: #3c315b 3px solid;
+    border-radius: 2em;
+}
+
+.ourMessageText {
+    background-color: #ab9ff2;
+}

@@ -1,0 +1,91 @@
+.dialog {
+    width: 80%;
+
+    margin: 1em auto;
+
+    display: flex;
+}
+
+.dialog a {
+    width: 100%;
+
+    padding: 0.5em;
+
+    color: #3c315b;
+
+    display: flex;
+
+    border: #3c315b 3px solid;
+    border-radius: 2em;
+}
+
+.dialog a:hover, .dialog a:active {
+    color: #ab9ff2;
+
+    cursor: pointer;
+}
+
+.userPhoto {
+    width: 10%;
+
+    padding: 0.2em;
+
+    display: flex;
+    align-items: center;
+
+    background-color: #ab9ff2;
+
+    border-radius: 1em;
+}
+
+.userPhoto img {
+    width: 70%;
+
+    margin: 0.5em auto; 
+}
+
+.userName {
+    width: auto;
+
+    margin: 0 0.5em;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+@media (max-width: 1200px) {
+    .dialog {
+        width: 85%;
+    }
+    
+    .userPhoto {
+        width: 20%;
+    }
+
+    .userName {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .dialog {
+        width: 90%;
+    }
+
+    .userPhoto {
+        width: 25%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dialog {
+        width: 100%;
+    }
+
+    .userName {
+        font-size: 1rem;
+    }
+}

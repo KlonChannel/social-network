@@ -9,6 +9,7 @@ import Menu from './components/Menu/Menu';
 import Profile from './components/Profile/Profile';
 import Subscribers from './components/Subscribers/Subscribers';
 import Posts from './components/Posts/Posts';
+import Messages from './components/Messages/Messages';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -19,8 +20,7 @@ const App = () => {
       <Menu />
       
       <main>
-        <Posts />
-        
+        <Messages />
       </main>
 
       <Footer />
