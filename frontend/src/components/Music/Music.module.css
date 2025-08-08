@@ -1,0 +1,135 @@
+.music {
+    width: 80%;
+
+    margin: 1em 0;
+    padding: 1em;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-radius: 2em;
+}
+
+.music h2 {
+    margin: 0 0 0.5em;
+}
+
+.musicPlayer {
+    width: 80%;
+    min-height: 50vh;
+
+    margin: 0 auto 1em;
+    padding: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: #3c315b 3px solid;
+    border-radius: 2em;
+}
+
+.musicName {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.musicRecord {
+    width: 40%;
+    height: auto;
+
+    margin: 0 auto;
+}
+
+.musicRecord img {
+    width: 90%;
+}
+
+.range input {
+    width: 40%;
+
+    accent-color: #ab9ff2;
+}
+
+.buttons button {
+    margin: 0 0.5em;
+
+    background-color: white;
+
+    border: none;
+}
+
+.buttons button:hover {
+    border: none;
+
+    cursor: pointer;
+}
+
+.buttons img {
+    width: 5rem;
+}
+
+@media (max-width: 1200px) {
+    .music {
+        width: 85%;
+    }
+
+    .range input {
+        width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+   .music {
+        width: 90%;
+    }
+
+    .musicName {
+        font-size: 2rem;
+    }
+
+    .range input {
+        width: 60%;
+    }
+
+    .buttons img {
+        width: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .music {
+        width: 100%;
+    }
+
+    .musicName {
+        font-size: 1.5rem;
+    }
+
+    .range input {
+        width: 70%;
+    }
+
+    .buttons img {
+        width: 3rem;
+    }
+}
+
+@media (max-width: 576px) {    
+    .musicName {
+        font-size: 1rem;
+    }
+
+    .musicRecord {
+        width: 60%;
+    }
+
+    .range input {
+        width: 100%;
+    }
+
+    .buttons img {
+        width: 2rem;
+    }
+}

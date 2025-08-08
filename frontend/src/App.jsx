@@ -10,6 +10,7 @@ import Profile from './components/Profile/Profile';
 import Subscribers from './components/Subscribers/Subscribers';
 import Posts from './components/Posts/Posts';
 import Messages from './components/Messages/Messages';
+import Music from './components/Music/Music';
 import Footer from './components/Footer/Footer';
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
       <Menu />
       
       <main>
-        <Messages />
+        <Music />
       </main>
 
       <Footer />
