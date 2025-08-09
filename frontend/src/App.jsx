@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import './App.css';
 
@@ -15,18 +16,45 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route exact path='/' element={<Navigate to={"/profile"} />} />
+
+          <Route path='/login' element={<Login />} />
+
+          <Route path='/registration' element={<Registration />} />
+
+          <Route path='/profile' element={<Main><Profile /></Main>} />
+
+          <Route exact path='/subscribers' element={<Main><Subscribers /></Main>} />
+
+          <Route path='/posts' element={<Main><Posts /></Main>} />
+
+          <Route path='/messages' element={<Main><Messages /></Main>} />
+
+          <Route path='/music' element={<Main><Music /></Main>} />
+        </Routes>
+
+      </div>
+    </BrowserRouter>
+  );
+}
+
+const Main = ({children}) => {
+  return (
+    <div>
       <Header />
       
       <Menu />
-      
+
       <main>
-        <Music />
+        {children}
       </main>
 
       <Footer />
     </div>
-  );
+  )
 }
 
 export default App;

@@ -21,7 +21,9 @@ const Subscribers = (props) => {
 
                 <div className={style.menu}>
                     <a>Subscribers</a>
+                    
                     <a>My subscribes</a>
+                    
                     <a>All users</a>
                 </div>
                 <div className={style.users}>

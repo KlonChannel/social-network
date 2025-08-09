@@ -73,6 +73,10 @@
     align-items: center;
 }
 
+.messageButton a {
+    text-decoration: none;
+}
+
 .messageButton img {
     width: 1.5em;
     

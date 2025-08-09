@@ -29,6 +29,7 @@ nav {
     font-size: 1.5rem;
     color: #3c315b;
     text-align: center;
+    text-decoration: none;
 
     border-radius: 10em;
 
@@ -41,6 +42,10 @@ nav {
     color: #3c315b;
     
     cursor: pointer;
+}
+
+a.active {
+    background-color: #e2dffe;
 }
 
 @media (max-width: 1200px) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 import Contact from './Contact/Contact';
 
@@ -35,7 +36,7 @@ const Profile = (props) => {
                     </div>
 
                     <div className={style.messageButton}>
-                        <img src={message} alt='message' /> <a>Send message</a>
+                        <img src={message} alt='message' /> <NavLink to='/messages'>Send message</NavLink>
                     </div>
 
                     <div className={style.subscribeButton}>
