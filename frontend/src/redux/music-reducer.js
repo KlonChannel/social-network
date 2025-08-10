@@ -1,0 +1,30 @@
+const SET_MUSIC = 'SET_SET_MUSIC';
+
+let initialState = {
+    music: [
+        { id: 1, name: 'Music 1', duration: '2:00' },
+        { id: 2, name: 'Music 2', duration: '2:30' },
+        { id: 3, name: 'Music 3', duration: '3:00' },
+    ]
+};
+
+const musicReducer = (state = initialState, action) => {
+
+    switch (action.type) {
+        case SET_MUSIC: {
+            return { ...state, music: action.music }
+        }
+
+        default:
+            return state;
+    }
+}
+
+export const setMusic = (music) => ({ type: SET_USER_PROFILE, music });
+
+export const getMusic = (music) => async (dispatch) => {
+    const response = await usersAPI.getProfile(music);
+    dispatch(setUserProfile(response.data));
+};
+
+export default musicReducer;
