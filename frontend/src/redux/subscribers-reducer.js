@@ -1,3 +1,9 @@
+import profilePhoto from '../assets/profile.png';
+
+//Consts of actions
+
+
+//Initial state
 let initialState = {
     users: [
         { id: 1, surname: 'Drozdov', name: 'Nikita', photo: profilePhoto, city: 'Smolensk' },
@@ -6,6 +12,7 @@ let initialState = {
     ]
 };
 
+//Reducer
 const subscribersReducer = (state = initialState, action) => {
     switch (action.type) {
         default:
@@ -13,4 +20,8 @@ const subscribersReducer = (state = initialState, action) => {
     }
 };
 
+//Action creators
+
+
+//Export subscribers reducer
 export default subscribersReducer;

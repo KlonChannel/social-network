@@ -24,15 +24,15 @@ const Profile = (props) => {
 
                 <div className={style.mainContent}>
                     <div className={style.name}>
-                        <h2>Surname Name</h2>
+                        <h2>{props.surname} {props.name}</h2>
                     </div>
 
                     <div className={style.city}>
-                        <img src={location} alt='location' /> <div>Moscow</div>
+                        <img src={location} alt='location' /> <div>{props.city}</div>
                     </div>
 
                     <div>
-                        <b>Profession:</b> programmer
+                        <b>Profession:</b> {props.profession}
                     </div>
 
                     <div className={style.messageButton}>
@@ -51,11 +51,11 @@ const Profile = (props) => {
                         Contacts
                     </div>
                     
-                    <Contact src={email} alt='email' text='Email@email.com' />
+                    <Contact src={email} alt='email' text={props.email}/>
 
-                    <Contact src={vk} alt='vk' text='https://vk.com' />
+                    <Contact src={vk} alt='vk' text='https://vk.com' href={props.vk} />
 
-                    <Contact src={telegram} alt='telegram' text='https://t.me' />
+                    <Contact src={telegram} alt='telegram' text='https://t.me' href={props.telegram} />
                 </div>
 
                 <div className={style.about}>
@@ -64,7 +64,7 @@ const Profile = (props) => {
                     </div>
 
                     <div className={style.textAboutUser}>
-                        Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user.
+                        {props.about}
                     </div>
 
                 </div>

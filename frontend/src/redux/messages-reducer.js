@@ -1,5 +1,7 @@
+//Consts of actions
 const SEND_MESSAGE = 'SEND_MESSAGE';
 
+//Initial state
 let initialState = {
     dialogs: [
         { id: 1, surname: 'Drozdov', name: 'Nikita' },
@@ -14,6 +16,7 @@ let initialState = {
     ]
 };
 
+//Reducer
 const messagesReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE:
@@ -26,6 +29,8 @@ const messagesReducer = (state = initialState, action) => {
     }
 }
 
+//Action creators
 export const sendMessageCreator = (newMessageBody) => ({type: SEND_MESSAGE, newMessageBody})
 
+//Export messages reducer
 export default messagesReducer;

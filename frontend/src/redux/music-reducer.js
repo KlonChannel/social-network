@@ -1,5 +1,7 @@
-const SET_MUSIC = 'SET_SET_MUSIC';
+//Consts of actions
+const SET_MUSIC = 'SET_MUSIC';
 
+//Initial state
 let initialState = {
     music: [
         { id: 1, name: 'Music 1', duration: '2:00' },
@@ -8,6 +10,7 @@ let initialState = {
     ]
 };
 
+//Reducer
 const musicReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -20,11 +23,14 @@ const musicReducer = (state = initialState, action) => {
     }
 }
 
-export const setMusic = (music) => ({ type: SET_USER_PROFILE, music });
+//Action creators
+export const setMusic = (music) => ({ type: SET_MUSIC, music });
 
-export const getMusic = (music) => async (dispatch) => {
+//Thunks
+/*export const getMusic = (music) => async (dispatch) => {
     const response = await usersAPI.getProfile(music);
     dispatch(setUserProfile(response.data));
-};
+};*/
 
+//Export music reducer
 export default musicReducer;

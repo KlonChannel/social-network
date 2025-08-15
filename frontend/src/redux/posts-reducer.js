@@ -1,5 +1,9 @@
+import postPhoto from '../assets/Post.png';
+
+//Consts of actions
 const ADD_POST = 'ADD-POST';
 
+//Initial state
 let initialState = {
     posts: [
         {
@@ -23,6 +27,7 @@ let initialState = {
     ]
 };
 
+//Reducer
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST: {
@@ -44,6 +49,8 @@ const postsReducer = (state = initialState, action) => {
     }
 };
 
+//Action creators
 export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText});
 
+//Export posts reducer
 export default postsReducer;

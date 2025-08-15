@@ -1,5 +1,7 @@
-import React from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from './redux/redux-store';
 
 import './App.css';
 
@@ -7,7 +9,7 @@ import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import Subscribers from './components/Subscribers/Subscribers';
 import Posts from './components/Posts/Posts';
 import Messages from './components/Messages/Messages';
@@ -17,41 +19,39 @@ import Footer from './components/Footer/Footer';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="App">
-        <Routes>
-          <Route exact path='/' element={<Navigate to={"/profile"} />} />
+      <Provider store={store}>
+        <div className="App">
+          <Routes>
+            <Route exact path='/' element={<Navigate to={"/profile"} />} />
 
-          <Route path='/login' element={<Login />} />
+            <Route path='/login' element={<Login />} />
 
-          <Route path='/registration' element={<Registration />} />
+            <Route path='/registration' element={<Registration />} />
 
-          <Route path='/profile' element={<Main><Profile /></Main>} />
+            <Route path='/profile' element={<Main><ProfileContainer /></Main>} />
 
-          <Route exact path='/subscribers' element={<Main><Subscribers /></Main>} />
+            <Route exact path='/subscribers' element={<Main><Subscribers /></Main>} />
 
-          <Route path='/posts' element={<Main><Posts /></Main>} />
+            <Route path='/posts' element={<Main><Posts /></Main>} />
 
-          <Route path='/messages' element={<Main><Messages /></Main>} />
+            <Route path='/messages' element={<Main><Messages /></Main>} />
 
-          <Route path='/music' element={<Main><Music /></Main>} />
-        </Routes>
-
-      </div>
+            <Route path='/music' element={<Main><Music /></Main>} />
+          </Routes>
+        </div>
+      </Provider>
     </BrowserRouter>
   );
 }
 
-const Main = ({children}) => {
+const Main = ({ children }) => {
   return (
     <div>
       <Header />
-      
       <Menu />
-
       <main>
         {children}
       </main>
-
       <Footer />
     </div>
   )
