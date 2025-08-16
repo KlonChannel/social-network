@@ -10,7 +10,7 @@ import Registration from './components/Registration/Registration';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import ProfileContainer from './components/Profile/ProfileContainer';
-import Subscribers from './components/Subscribers/Subscribers';
+import SubscribersContainer from './components/Subscribers/SubscribersContainer';
 import Posts from './components/Posts/Posts';
 import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
@@ -30,13 +30,15 @@ const App = () => {
 
             <Route path='/profile' element={<Main><ProfileContainer /></Main>} />
 
-            <Route exact path='/subscribers' element={<Main><Subscribers /></Main>} />
+            <Route exact path='/subscribers' element={<Main><SubscribersContainer /></Main>} />
 
             <Route path='/posts' element={<Main><Posts /></Main>} />
 
             <Route path='/messages' element={<Main><Messages /></Main>} />
 
             <Route path='/music' element={<Main><Music /></Main>} />
+
+            <Route path='*' element={<Main><div>Error 404</div></Main>} />
           </Routes>
         </div>
       </Provider>

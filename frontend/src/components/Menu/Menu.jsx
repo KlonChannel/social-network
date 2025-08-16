@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import style from './Menu.module.css';
 
 const Menu = (props) => {
-    const activeCheck = ({ isActive }) => (isActive ? style.active : '')
+    const activeCheck = ({ isActive }) => (isActive ? style.active : '');
     
     return (
         <nav>

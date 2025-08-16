@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink, useLocation} from "react-router-dom";
 
 import User from './User/User';
 
@@ -8,6 +9,10 @@ import photo from '../../assets/profile.png';
 
 
 const Subscribers = (props) => {
+    const location = useLocation();
+
+    const activeCheck = (query) => ( location.search === query ? style.active : '');
+    
     return (
         <div className={style.subscribers}>
             <div className={style.subscribersHeader}>
@@ -20,18 +25,22 @@ const Subscribers = (props) => {
                 </form>
 
                 <div className={style.menu}>
-                    <a>Subscribers</a>
+                    <NavLink to='/subscribers?type=subscribers' onClick={props.getUsers} className={activeCheck('?type=subscribers') || activeCheck('')}>Subscribers</NavLink>
                     
-                    <a>My subscribes</a>
+                    <NavLink to='/subscribers?type=my' onClick={props.getUsers} className={activeCheck('?type=my')}>My subscribes</NavLink>
                     
-                    <a>All users</a>
+                    <NavLink to='/subscribers?type=all' onClick={props.getUsers} className={activeCheck('?type=all')}>All users</NavLink>
                 </div>
                 <div className={style.users}>
-                    <User photo={photo} surname='Drozdov' name='Nikita' location='Smolensk' />
-
-                    <User photo={photo} surname='Surname' name='Name' location='Undefined' />
-
-                    <User photo={photo} surname='Viktorov' name='Viktor' location='Moscow' />
+                    {
+                        props.users.map(user => <User key={user.id}
+                                                      photo={photo}
+                                                      surname={user.surname}
+                                                      name={user.name}
+                                                      location={user.location}/>
+                        )
+                    }
+                    
                 </div>
             </div>
         </div>
