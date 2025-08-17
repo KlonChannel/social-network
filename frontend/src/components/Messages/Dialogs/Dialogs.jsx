@@ -20,8 +20,9 @@ const Dialogs = (props) => {
             <div>
                 {
                     props.dialogs.map(dialog => <Dialog key={dialog.id}
-                                                      userPhoto={profile}
-                                                      userName={`${dialog.surname} ${dialog.name}`}/>
+                                                        id={dialog.id}
+                                                        userPhoto={profile}
+                                                        userName={`${dialog.surname} ${dialog.name}`}/>
                     )
                 }
             </div>

@@ -16,6 +16,9 @@ export const usersAPI = {
     },*/
     getProfile() {
         return profileAPI.getProfile();
+    },
+    getMessages() {
+        return instance.get('messages');
     }
 };
 

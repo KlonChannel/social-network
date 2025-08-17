@@ -10,7 +10,6 @@ import image from '../../assets/Post.png';
 
 
 const Posts = (props) => {
-    console.log(props.posts);
     return (
         <div className={style.posts}>
             <div className={style.postsHeader}>

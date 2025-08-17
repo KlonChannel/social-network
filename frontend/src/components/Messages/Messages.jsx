@@ -1,16 +1,19 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 import Dialogs from './Dialogs/Dialogs';
-import MessagesArea from './MessagesArea/MessagesArea'
+import MessagesArea from './MessagesArea/MessagesArea';
 
 import style from './Messages.module.css';
 
-import profile from '../../assets/profile.png'
-
 const Messages = (props) => {
+    const location = useLocation();
+
     return (
         <div className={style.messages}>
-            <Dialogs dialogs={props.dialogs} />
+            {location.pathname.match(/^\/messages\/(\d+)$/) && location.pathname !== '/messages/0' ? 
+            <MessagesArea getMessages={props.getMessages} messages={props.messages} dialogs={props.dialogs} userName='Surname Name'/> : 
+            <Dialogs dialogs={props.dialogs} />}
         </div>
     )
 }

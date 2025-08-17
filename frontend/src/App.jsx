@@ -34,7 +34,7 @@ const App = () => {
 
             <Route path='/posts' element={<Main><PostsContainer /></Main>} />
 
-            <Route path='/messages' element={<Main><MessagesContainer /></Main>} />
+            <Route path='/messages/*' element={<Main><MessagesContainer /></Main>} />
 
             <Route path='/music' element={<Main><Music /></Main>} />
 

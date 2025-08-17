@@ -1,17 +1,14 @@
-import {usersAPI} from "../api/api";
+import { usersAPI } from "../api/api";
 
 //Consts of actions
 const SET_DIALOGS = 'SET_DIALOGS';
+const SET_MESSAGES = 'SET_MESSAGES';
 
 //Initial state
 let initialState = {
     dialogs: [],
 
-    messages: [
-        { id: 1, text: 'Hello', authorId: 2 },
-        { id: 2, text: 'Hello! Hello!', authorId: 1 },
-        { id: 3, text: 'How are you?', authorId: 1 }
-    ]
+    messages: []
 };
 
 //Reducer
@@ -20,6 +17,9 @@ const messagesReducer = (state = initialState, action) => {
         case SET_DIALOGS:
             return { ...state, dialogs: action.dialogs };
 
+        case SET_MESSAGES:
+            return { ...state, messages: action.messages };
+
         default:
             return state;
     }
@@ -27,11 +27,17 @@ const messagesReducer = (state = initialState, action) => {
 
 //Action creators
 export const setDialogs = (dialogs) => ({ type: SET_DIALOGS, dialogs });
+export const setMessages = (messages) => ({ type: SET_MESSAGES, messages });
 
 //Thunks
 export const getDialogs = () => async (dispatch) => {
     const response = await usersAPI.getUsers();
     dispatch(setDialogs(response.data.users));
+};
+
+export const getMessages = () => async (dispatch) => {
+    const response = await usersAPI.getMessages();
+    dispatch(setMessages(response.data.messages));
 };
 
 //Export messages reducer

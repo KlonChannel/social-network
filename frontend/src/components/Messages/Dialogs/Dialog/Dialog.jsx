@@ -1,11 +1,12 @@
 import React from 'react';
+import {NavLink} from "react-router-dom";
 
 import style from './Dialog.module.css';
 
 const Dialog = (props) => {
     return (
         <div className={style.dialog}>
-            <a className={style.dialogLink}>
+            <NavLink to={`/messages/${props.id}`} className={style.dialogLink}>
                 <div className={style.userPhoto}>
                     <img src={props.userPhoto} alt='user photo' />
                 </div>
@@ -13,7 +14,7 @@ const Dialog = (props) => {
                 <div className={style.userName}>
                     {props.userName}
                 </div>
-            </a>
+            </NavLink>
         </div>
     )
 }

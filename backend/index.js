@@ -104,6 +104,17 @@ app.get('/posts', (req, res) => {
     });
 });
 
+app.get('/messages', (req, res) => {
+    res.json({
+        messages: [
+            { id: 1, text: 'Hello', authorId: 2},
+            { id: 2, text: 'Hello! Hello!', authorId: 1 },
+            { id: 3, text: 'How are you?', authorId: 1 }
+        ]
+    });
+});
+
+
 app.listen(PORT, () => {
     console.log(`Server is starting on port ${PORT}`);
 });
