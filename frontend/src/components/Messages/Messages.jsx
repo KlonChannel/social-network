@@ -10,7 +10,7 @@ import profile from '../../assets/profile.png'
 const Messages = (props) => {
     return (
         <div className={style.messages}>
-            <MessagesArea userPhoto={profile} userName='Drozdov Nikita'/>
+            <Dialogs dialogs={props.dialogs} />
         </div>
     )
 }

@@ -25,7 +25,6 @@ export const setPosts = (posts) => ({ type: SET_POSTS, posts });
 //Thunks
 export const getPosts = () => async (dispatch) => {
     const response = await postsAPI.getPosts();
-    debugger;
     dispatch(setPosts(response.data.posts));
 };
 

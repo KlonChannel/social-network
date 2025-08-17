@@ -18,11 +18,12 @@ const Dialogs = (props) => {
             </form>
 
             <div>
-                <Dialog userPhoto={profile} userName='Drozdov Nikita' />
-
-                <Dialog userPhoto={profile} userName='Surname Name' />
-
-                <Dialog userPhoto={profile} userName='Vladimirov Vladimir' />
+                {
+                    props.dialogs.map(dialog => <Dialog key={dialog.id}
+                                                      userPhoto={profile}
+                                                      userName={`${dialog.surname} ${dialog.name}`}/>
+                    )
+                }
             </div>
         </div>
     )

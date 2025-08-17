@@ -51,7 +51,8 @@ app.get('/subscribers', (req, res) => {
                     { id: 1, surname: 'Drozdov', name: 'Nikita', location: 'Smolensk' },
                     { id: 2, surname: 'Surname', name: 'Name', location: 'Moscow' },
                     { id: 3, surname: 'Unknown', name: 'Unknown', location: 'Not' },
-                    { id: 4, surname: 'Wow', name: 'wow', location: 'New-York' }
+                    { id: 4, surname: 'Wow', name: 'wow', location: 'New-York' },
+                    { id: 5, surname: 'Smith', name: 'Bob', location: 'Paris' }
                 ]
             });
 
@@ -68,7 +69,8 @@ app.get('/subscribers', (req, res) => {
             res.json({
                 users: [
                     { id: 1, surname: 'Drozdov', name: 'Nikita', location: 'Smolensk' },
-                    { id: 2, surname: 'Surname', name: 'Name', location: 'Moscow' }
+                    { id: 2, surname: 'Surname', name: 'Name', location: 'Moscow' },
+                    { id: 5, surname: 'Smith', name: 'Bob', location: 'Paris' }
                 ]
             });
 

@@ -12,7 +12,7 @@ import Menu from './components/Menu/Menu';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import SubscribersContainer from './components/Subscribers/SubscribersContainer';
 import PostsContainer from './components/Posts/PostsContainer';
-import Messages from './components/Messages/Messages';
+import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Footer from './components/Footer/Footer';
 
@@ -34,7 +34,7 @@ const App = () => {
 
             <Route path='/posts' element={<Main><PostsContainer /></Main>} />
 
-            <Route path='/messages' element={<Main><Messages /></Main>} />
+            <Route path='/messages' element={<Main><MessagesContainer /></Main>} />
 
             <Route path='/music' element={<Main><Music /></Main>} />
 
