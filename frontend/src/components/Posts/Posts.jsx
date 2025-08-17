@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Post from './Post/Post';
 
@@ -10,6 +10,7 @@ import image from '../../assets/Post.png';
 
 
 const Posts = (props) => {
+    console.log(props.posts);
     return (
         <div className={style.posts}>
             <div className={style.postsHeader}>
@@ -31,26 +32,16 @@ const Posts = (props) => {
             </div>
 
             <div className={style.postsFeed}>
-                <Post userPhoto={userPhoto}
-                    userName='Drozdov Nikita'
-                    date='1/01/2025'
-                    postImage={image}
-                    postText='Aw, its my first post! Its so wonderful!!! Aw, its my first post! Its so wonderful!!! Aw, its my first post! Its so wonderful!!!'
-                    likesCount={10} />
-
-                <Post userPhoto={userPhoto}
-                    userName='Surname Name'
-                    date='20/12/2024'
-                    postImage={image}
-                    postText='Hello everyone!'
-                    likesCount={3} />
-
-                <Post userPhoto={userPhoto}
-                    userName='Vladimirov Vladimir'
-                    date='1/01/2024'
-                    postImage={image}
-                    postText='Spam: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-                    likesCount={0} />
+                {
+                    props.posts.map(post => <Post key={post.id}
+                                                  userPhoto={userPhoto}
+                                                  userName={`${post.surname} ${post.name}`}
+                                                  date={post.date}
+                                                  postImage={image}
+                                                  postText={post.text}
+                                                  likesCount={post.likesCount} />
+                    )
+                }
             </div>
         </div>
     )

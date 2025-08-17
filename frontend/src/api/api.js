@@ -17,7 +17,7 @@ export const usersAPI = {
     getProfile() {
         return profileAPI.getProfile();
     }
-}
+};
 
 export const profileAPI = {
     getProfile() {
@@ -42,4 +42,10 @@ export const profileAPI = {
     saveProfile(profile) {
         return instance.put(`profile`, profile );
     }*/
-}
+};
+
+export const postsAPI = {
+    getPosts() {
+        return instance.get('posts');
+    }
+};

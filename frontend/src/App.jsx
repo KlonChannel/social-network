@@ -11,7 +11,7 @@ import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import ProfileContainer from './components/Profile/ProfileContainer';
 import SubscribersContainer from './components/Subscribers/SubscribersContainer';
-import Posts from './components/Posts/Posts';
+import PostsContainer from './components/Posts/PostsContainer';
 import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
 import Footer from './components/Footer/Footer';
@@ -32,7 +32,7 @@ const App = () => {
 
             <Route exact path='/subscribers' element={<Main><SubscribersContainer /></Main>} />
 
-            <Route path='/posts' element={<Main><Posts /></Main>} />
+            <Route path='/posts' element={<Main><PostsContainer /></Main>} />
 
             <Route path='/messages' element={<Main><Messages /></Main>} />
 

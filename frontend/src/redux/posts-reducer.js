@@ -1,48 +1,18 @@
-import postPhoto from '../assets/Post.png';
+import {postsAPI} from "../api/api";
 
 //Consts of actions
-const ADD_POST = 'ADD-POST';
+const SET_POSTS = 'SET_POSTS';
 
 //Initial state
 let initialState = {
-    posts: [
-        {
-            id: 1, authorId: 3, date: '1/01/2024',
-            text: 'Spam: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000',
-            file: postPhoto,
-            likesCount: 0
-        },
-        {
-            id: 2, authorId: 2, date: '20/12/2024',
-            text: 'Hello everyone!',
-            file: postPhoto,
-            likesCount: 3
-        },
-        {
-            id: 3, authorId: 1, date: '1/01/2025',
-            text: 'Aw, its my first post! Its so wonderful!!! Aw, its my first post! Its so wonderful!!! Aw, its my first post! Its so wonderful!!!',
-            file: postPhoto,
-            likesCount: 10
-        }
-    ]
+    posts: []
 };
 
 //Reducer
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_POST: {
-            let newPost = {
-                id: 4,
-                text: action.newPostText,
-                file: postPhoto,
-                likesCount: 0
-            };
-            return {
-                ...state,
-                posts: [...state.posts, newPost],
-                newPostText: ''
-            };
-        }
+        case SET_POSTS:
+            return { ...state, posts: action.posts };
 
         default:
             return state;
@@ -50,7 +20,14 @@ const postsReducer = (state = initialState, action) => {
 };
 
 //Action creators
-export const addPostActionCreator = (newPostText) => ({type: ADD_POST, newPostText});
+export const setPosts = (posts) => ({ type: SET_POSTS, posts });
+
+//Thunks
+export const getPosts = () => async (dispatch) => {
+    const response = await postsAPI.getPosts();
+    debugger;
+    dispatch(setPosts(response.data.posts));
+};
 
 //Export posts reducer
 export default postsReducer;

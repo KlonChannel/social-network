@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {getUserProfile} from "../../redux/profile-reducer";
 import {connect} from 'react-redux';
+import {getProfile} from '../../redux/selectors/profile-selectors';
 
 import Profile from './Profile';
 
@@ -27,7 +28,7 @@ const ProfileContainer = (props) => {
 
 let mapStateToProps = (state) => {
     return ({
-        profile: state.profilePage.profile
+        profile: getProfile(state)
     })
 }
 
