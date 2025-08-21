@@ -1,8 +1,18 @@
-.RegistrationWindow {
-    background-color: white;
+.registrationWindow {
+    display: flex;
 
-    margin: 5% 30%;
+    justify-content: center;
+    align-items: center;
+
+    height: 98vh;
+}
+
+.registrationBlock {
+    background-color: white;
+    
     padding: 2% 0;
+
+    width: 45%;
 
     display: inline-block;
 
@@ -69,20 +79,20 @@ a:hover, a:active {
 }
 
 @media (max-width: 1200px) {
-    .RegistrationWindow {
-        margin: 5% 30%;
+    .registrationBlock {
+        width: 50%;
     }
 }
 
 @media (max-width: 992px) {
-    .RegistrationWindow {
-        margin: 10% 20%;
+    .registrationBlock {
+        width: 60%;
     }
 }
 
 @media (max-width: 768px) {
-    .RegistrationWindow {
-        margin: 5% 10%;
+    .registrationBlock {
+        width: 70%;
     }
 
     .registrationForm input {
@@ -95,8 +105,8 @@ a:hover, a:active {
 }
 
 @media (max-width: 576px) {
-    .RegistrationWindow {
-        margin: 5% 5%;
+    .registrationBlock {
+        width: 90%;
     }
 
     .registrationForm input {

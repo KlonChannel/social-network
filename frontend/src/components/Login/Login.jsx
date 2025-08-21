@@ -42,7 +42,7 @@ const Login = (props) => {
     const passwordHandler = (e) => {
         setPassword(e.target.value);
         
-        const validation = /^[a-zA-Z0-9_-]{5,15}$/;
+        const validation = /^[a-zA-Z0-9_-]{8,15}$/;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length < 8 || e.target.value.length > 15) {
