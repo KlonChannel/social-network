@@ -1,8 +1,18 @@
 .loginWindow {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    height: 98vh;
+}
+
+.loginBlock {
     background-color: white;
 
-    margin: 7% 30%;
     padding: 2% 0;
+
+    width: 45%;
 
     display: inline-block;
 
@@ -79,20 +89,20 @@ a:hover, a:active {
 }
 
 @media (max-width: 1200px) {
-    .loginWindow {
-        margin: 7% 30%;
+    .loginBlock {
+        width: 50%;
     }
 }
 
 @media (max-width: 992px) {
-    .loginWindow {
-        margin: 7% 20%;
+    .loginBlock {
+        width: 60%;
     }
 }
 
 @media (max-width: 768px) {
-    .loginWindow {
-        margin: 7% 10%;
+    .loginBlock {
+        width: 70%;
     }
 
     .loginForm input {
@@ -105,10 +115,10 @@ a:hover, a:active {
 }
 
 @media (max-width: 576px) {
-    .loginWindow {
-        margin: 7% 5%;
+    .loginBlock {
+        width: 90%;
     }
-
+    
     .loginForm input {
         font-size: 1rem;
     }

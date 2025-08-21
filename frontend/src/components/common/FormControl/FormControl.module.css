@@ -1,0 +1,8 @@
+.formError {
+    margin: 0 auto 0.5em;
+
+    width: 75%;
+
+    color: red;
+    text-align: center;
+}
