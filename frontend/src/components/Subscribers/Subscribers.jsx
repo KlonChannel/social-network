@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
 
 import User from './User/User';
@@ -9,7 +9,13 @@ import photo from '../../assets/profile.png';
 
 
 const Subscribers = (props) => {
+    const [search, setSearch] = useState('');
+
     const location = useLocation();
+    
+    const searchHandler = (e) => {
+        setSearch(e.target.value);
+    };
 
     const activeCheck = (query) => ( location.search === query ? style.active : '');
     
@@ -19,7 +25,7 @@ const Subscribers = (props) => {
                 <h2>Subscribers</h2>
                 
                 <form>
-                    <input name='search' placeholder='Surname Name...' />
+                    <input onChange={e => searchHandler(e)} value={search} name='search' placeholder='Surname Name...' />
                     
                     <button className={style.button}>Search</button>
                 </form>

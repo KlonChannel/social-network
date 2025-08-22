@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {NavLink} from 'react-router-dom';
 
 import Message from './Message/Message';
@@ -9,10 +9,16 @@ import back from '../../../assets/backicon.png';
 import userPhoto from '../../../assets/profile.png';
 
 const MessagesArea = (props) => {
+    const [message, setMessage] = useState('');
+    
     useEffect(() => {
         props.getMessages();
     }, []);
-    
+
+    const messageHandler = (e) => {
+        setMessage(e.target.value);
+    };
+
     return (
         <div className={style.messagesArea}>
             <div className={style.userInfo}>
@@ -40,7 +46,7 @@ const MessagesArea = (props) => {
             </div>
 
             <form className={style.messagesForm}>
-                <textarea name='message' placeholder='Your message...' maxLength={1000} />
+                <textarea onChange={e => messageHandler(e)} value={message} name='message' placeholder='Your message...' maxLength={1000} />
 
                 <button className={style.button}>Send</button>
             </form>

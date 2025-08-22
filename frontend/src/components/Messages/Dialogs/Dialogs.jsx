@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Dialog from './Dialog/Dialog';
 
@@ -7,12 +7,18 @@ import style from './Dialogs.module.css';
 import profile from '../../../assets/profile.png';
 
 const Dialogs = (props) => {
+    const [search, setSearch] = useState('');
+
+    const searchHandler = (e) => {
+        setSearch(e.target.value);
+    };
+    
     return (
         <div className={style.dialogs}>
             <h2>Messages</h2>
 
             <form>
-                <input name='search' placeholder='Surname Name...' />
+                <input onChange={e => searchHandler(e)} value={search} name='search' placeholder='Surname Name...' />
 
                 <button className={style.button}>Search</button>
             </form>

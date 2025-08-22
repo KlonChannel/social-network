@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Post from './Post/Post';
 
@@ -10,6 +10,12 @@ import image from '../../assets/Post.png';
 
 
 const Posts = (props) => {
+    const [postText, setPostText] = useState('');
+
+    const postTextHandler = (e) => {
+        setPostText(e.target.value);
+    };
+    
     return (
         <div className={style.posts}>
             <div className={style.postsHeader}>
@@ -17,7 +23,7 @@ const Posts = (props) => {
 
                 <form className={style.postsForm}>
                     <div>
-                        <textarea name='post' placeholder='Your post...' maxLength={1000} />
+                        <textarea onChange={e => postTextHandler(e)} value={postText} name='post' placeholder='Your post...' maxLength={1000} />
                     </div>
 
                     <div className={style.fileUpload}>
