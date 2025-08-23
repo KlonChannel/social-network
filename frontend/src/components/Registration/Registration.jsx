@@ -87,12 +87,20 @@ const Registration = (props) => {
         }
     };
 
+    const submitHandler = (e) => {
+        e.preventDefault();
+        
+        if (formValid) {
+            props.registration(login, password);
+        }
+    };
+
     return (
         <div className={style.registrationWindow}>
             <div className={style.registrationBlock}>
                 <h2 className={style.h2}>Registration</h2>
 
-                <form className={style.registrationForm}>
+                <form className={style.registrationForm} onSubmit={e => submitHandler(e)}>
                     <input onChange={e => loginHandler(e)} value={login} onBlur={e => blurHandler(e)} name='login' placeholder='Login' />
                     {(loginDirty && loginError) && <FormControl errorText={loginError} />}
 

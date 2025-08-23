@@ -6,13 +6,15 @@ import subscribersReducer from './subscribers-reducer';
 import postsReducer from './posts-reducer';
 import messagesReducer from './messages-reducer';
 //import musicReducer from './music-reducer';
+import authReducer from './auth-reducer';
 
 let reducers = combineReducers({
     profilePage: profileReducer,
     subscribersPage: subscribersReducer,
     postsPage: postsReducer,
-    messagesPage: messagesReducer
+    messagesPage: messagesReducer,
     //musicPage: musicReducer
+    auth: authReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunk));

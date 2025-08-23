@@ -6,7 +6,7 @@ import store from './redux/redux-store';
 import './App.css';
 
 import Login from './components/Login/Login';
-import Registration from './components/Registration/Registration';
+import RegistrationContainer from './components/Registration/RegistrationContainer';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -26,7 +26,7 @@ const App = () => {
 
             <Route path='/login' element={<Login />} />
 
-            <Route path='/registration' element={<Registration />} />
+            <Route path='/registration' element={<RegistrationContainer />} />
 
             <Route path='/profile' element={<Main><ProfileContainer /></Main>} />
 

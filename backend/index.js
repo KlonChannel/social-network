@@ -1,5 +1,7 @@
 const express = require('express');
 var cors = require('cors');
+const {Client} = require('pg');
+const bcrypt = require('bcryptjs');
 
 const PORT = process.env.PORT || 3001;
 
@@ -9,23 +11,22 @@ const corsOptions = {
     origin: 'http://localhost:3000'
 }
 
-app.use(cors(corsOptions));
-
-app.get('/profile', (req, res) => {
-    res.json({
-        profile: {
-            id: 1,
-            surname: 'Drozdov',
-            name: 'Nikita',
-            city: 'Moscow',
-            profession: 'programmer',
-            email: 'email@email.com',
-            vk: 'https://vk.com/na.chille5',
-            telegram: 'https://t.me/klonchannel',
-            about: 'Hey! Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user.'
-        }
-    });
+const connection = new Client({
+    host: 'localhost',
+    user: 'postgres',
+    port: 5432,
+    password: '123',
+    database: 'socialnetwork'
 });
+
+connection.connect().then(() => {
+    console.log('Database is connected')
+}).catch(() => {
+    console.log('Some error with connection')
+});
+
+app.use(express.json());
+app.use(cors(corsOptions));
 
 app.get('/profile', (req, res) => {
     res.json({
@@ -113,6 +114,21 @@ app.get('/messages', (req, res) => {
         ]
     });
 });
+
+app.post('/register', async (req, res) => {
+    const {login, password} = req.body;
+    const hashPassword = await bcrypt.hash(password, 10);
+
+    const insert = 'INSERT INTO users (login, hash_password) VALUES ($1, $2)';
+    connection.query(insert, [login, hashPassword], (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            console.log(result);
+            res.send('POSTED DATA');
+        }
+    });
+})
 
 
 app.listen(PORT, () => {

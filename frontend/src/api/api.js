@@ -52,3 +52,9 @@ export const postsAPI = {
         return instance.get('posts');
     }
 };
+
+export const authAPI = {
+    registration(login, password) {
+        return instance.post('/register', {login, password});
+    }
+};
