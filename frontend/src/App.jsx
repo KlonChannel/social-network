@@ -7,6 +7,7 @@ import './App.css';
 
 import Login from './components/Login/Login';
 import RegistrationContainer from './components/Registration/RegistrationContainer';
+import EditorContainer from './components/Editor/EditorContainer';
 import Header from './components/Header/Header';
 import Menu from './components/Menu/Menu';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -27,6 +28,8 @@ const App = () => {
             <Route path='/login' element={<Login />} />
 
             <Route path='/registration' element={<RegistrationContainer />} />
+
+            <Route path='/edit' element={<EditorContainer />} />
 
             <Route path='/profile/:id?' element={<Main><ProfileContainer /></Main>} />
 

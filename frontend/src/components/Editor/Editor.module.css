@@ -1,0 +1,150 @@
+.editWindow {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 98vh;
+}
+
+.editBlock {
+    background-color: white;
+    
+    padding: 2% 0;
+
+    width: 45%;
+
+    display: inline-block;
+
+    text-align: center;
+
+    border-radius: 3rem;
+}
+
+.h2 {
+    text-align: center;
+
+    margin: 0 0 0.5em 0;
+}
+
+.editForm input {
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    margin: 0 0 0.5em 0;
+    padding: 1rem;
+
+    border: #3c315b 0.15rem solid;
+    border-radius: 3rem;
+
+    width: 50%;
+}
+
+.editForm input:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
+}
+
+.editForm textarea {
+    font-size: 1.5rem;
+    color: #3c315b;
+
+    margin: 0 0 0.5em 0;
+    padding: 1rem;
+
+    border: #3c315b 0.15rem solid;
+    border-radius: 3rem;
+
+    width: 50%;
+    height: 5rem;
+
+    resize: none;
+}
+
+.editForm textarea:focus {
+    border: #3c315b 0.15rem solid;
+    outline: #ab9ff2 0.15rem solid;
+}
+
+.button {
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+
+    padding: 1rem;
+
+    margin: 0 0 1.5em 0;
+
+    width: 55%;
+
+    font-size: 1.5rem;
+}
+
+.button:hover, .button:active {
+    background-color: #e2dffe; 
+    
+    cursor: pointer;
+
+    transition: background-color 0.5s ease-in;
+}
+
+a {
+    color: #ab9ff2;
+}
+
+a:hover, a:active {
+    color: #e2dffe; 
+}
+
+@media (max-width: 1200px) {
+    .editBlock {
+        width: 50%;
+    }
+}
+
+@media (max-width: 992px) {
+    .editBlock {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .editBlock {
+        width: 70%;
+    }
+
+    .editForm input {
+        font-size: 1rem;
+
+        width: 70%;
+    }
+
+    .editForm textarea {
+        font-size: 1rem;
+
+        width: 70%;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .editBlock {
+        width: 90%;
+    }
+
+    .editForm input {
+        width: 80%;
+    }
+
+    .editForm textarea {
+        width: 80%;
+    }
+
+    .button {
+        width: 90%;
+    }
+}
