@@ -19,6 +19,9 @@ export const usersAPI = {
     },
     getMessages() {
         return instance.get('messages');
+    },
+    getId(userId) {
+        return instance.get(`getUserId/${userId}`)
     }
 };
 

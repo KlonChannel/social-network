@@ -13,7 +13,7 @@ let reducers = combineReducers({
     subscribersPage: subscribersReducer,
     postsPage: postsReducer,
     messagesPage: messagesReducer,
-    //musicPage: musicReducer
+    //musicPage: musicReducer,
     auth: authReducer
 });
 

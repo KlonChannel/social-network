@@ -28,6 +28,19 @@ connection.connect().then(() => {
 app.use(express.json());
 app.use(cors(corsOptions));
 
+app.get('/getUserId/:login', (req, res) => {
+    const login = req.params.login;
+
+    const getId = 'SELECT user_id FROM users WHERE login=$1';
+    connection.query(getId, [login], (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result.rows[0].user_id);
+        }
+    });
+});
+
 app.get('/profile', (req, res) => {
     res.json({
         profile: {
@@ -124,12 +137,10 @@ app.post('/register', async (req, res) => {
         if (err) {
             res.send(err);
         } else {
-            console.log(result);
-            res.send('POSTED DATA');
+            res.send('SUCCESS');
         }
     });
 })
-
 
 app.listen(PORT, () => {
     console.log(`Server is starting on port ${PORT}`);

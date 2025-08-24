@@ -28,7 +28,7 @@ const App = () => {
 
             <Route path='/registration' element={<RegistrationContainer />} />
 
-            <Route path='/profile' element={<Main><ProfileContainer /></Main>} />
+            <Route path='/profile/:id?' element={<Main><ProfileContainer /></Main>} />
 
             <Route exact path='/subscribers' element={<Main><SubscribersContainer /></Main>} />
 

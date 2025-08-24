@@ -66,10 +66,14 @@ const Registration = (props) => {
             if (e.target.value.length < 8 || e.target.value.length > 15) {
                 setRepeatPasswordError('The password must be between 8 and 15 characters long.');
             } else {
-                setRepeatPasswordError(`Passwords don't match`);
+                setRepeatPasswordError('Invalid password format');
             }
         } else {
-            setRepeatPasswordError('');
+            if (e.target.value !== password) {
+                setRepeatPasswordError(`Passwords don't match`);
+            } else {
+                setRepeatPasswordError('');
+            }
         }
     };
 
@@ -111,6 +115,8 @@ const Registration = (props) => {
                     {(repeatPasswordDirty && repeatPasswordError) && <FormControl errorText={repeatPasswordError} />}
 
                     <button className={style.button}>Confirm</button>
+
+                    {(props.isLoginBusy) && <FormControl errorText='The login is busy' />}
                 </form>
 
                 Do you have an account? <NavLink to='/login' href='#'>Log in</NavLink>
