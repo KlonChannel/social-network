@@ -20,14 +20,17 @@ export const usersAPI = {
     getMessages() {
         return instance.get('messages');
     },
-    getId(userId) {
-        return instance.get(`getUserId/${userId}`)
+    getId(login) {
+        return instance.get(`getUserId/${login}`)
     }
 };
 
 export const profileAPI = {
     getProfile() {
         return instance.get('profile');
+    },
+    updateProfile(id, surname, name, city, profession, email, vk, telegram, about) {
+        return instance.put(`editUser/${id}`, {surname, name, city, profession, email, vk, telegram, about});
     },
     /*getStatus(userId) {
         return instance.get(`profile/status/` + userId);

@@ -13,7 +13,7 @@ const RegistrationContainer = (props) => {
     }
     
     if (props.isAuth) {
-        return <Navigate to={`/profile/${props.id}`} />
+        return <Navigate to={`/edit`} />
     }
 
     return (

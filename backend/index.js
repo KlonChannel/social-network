@@ -140,7 +140,21 @@ app.post('/register', async (req, res) => {
             res.send('SUCCESS');
         }
     });
-})
+});
+
+app.put('/editUser/:id', (req, res) => {
+    const id = req.params.id;
+    const {surname, name, city, profession, email, vk, telegram, about} = req.body;
+
+    const update = 'UPDATE users SET surname=$1, name=$2, city=$3, profession=$4, email=$5, vk=$6, telegram=$7, about=$8 WHERE user_id=$9';
+    connection.query(update, [surname, name, city, profession, email, vk, telegram, about, id], (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send('SUCCESS');
+        }
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Server is starting on port ${PORT}`);
