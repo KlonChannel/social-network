@@ -175,7 +175,7 @@ const Registration = (props) => {
             props.updateUserInfo(props.id, surname, name, city, profession, email, vk, telegram, about);
         }
     };
-    console.log(props);
+    
     return (
         <div className={style.editWindow}>
             <div className={style.editBlock}>

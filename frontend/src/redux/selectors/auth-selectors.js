@@ -13,3 +13,7 @@ export const getLoginBusy = (state) => {
 export const getUserId = (state) => {
     return state.auth.id;
 };
+
+export const getAuthError = (state) => {
+    return state.auth.authError;
+};

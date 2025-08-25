@@ -1,10 +1,11 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 
 import style from './Header.module.css';
 
 import logo from '../../assets/logo.png';
 
-const Header = (props) => {
+const Header = (props) => {    
     return (
         <header>
             <div className={style.logo}>
@@ -16,7 +17,7 @@ const Header = (props) => {
             </div>
 
             <div className={style.logIn}>
-                <button className={style.button}>Log out</button>
+                <button className={style.button} onClick={props.logout}>Log out</button>
             </div>
         </header>
     )

@@ -14,7 +14,7 @@ const Login = (props) => {
     const [loginError, setLoginError] = useState('Login cannot be empty');
     const [passwordError, setPasswordError] = useState('Password cannot be empty');
     const [formValid, setFormValid] = useState(false);
-
+    
     useEffect(() => {
         if (loginError || passwordError) {
             setFormValid(false);
@@ -71,12 +71,20 @@ const Login = (props) => {
         }
     };
 
+    const submitHandler = (e) => {
+        e.preventDefault();
+        
+        if (formValid) {
+            props.login(login, password);
+        }
+    };
+    
     return (
         <div className={style.loginWindow}>
             <div className={style.loginBlock}>
                 <h2 className={style.h2}>Log in</h2>
 
-                <form className={style.loginForm}>
+                <form className={style.loginForm} onSubmit={e => submitHandler(e)}>
                     <input onChange={e => loginHandler(e)} value={login} onBlur={e => blurHandler(e)} name='login' placeholder='Login' />
                     {(loginDirty && loginError) && <FormControl errorText={loginError} />}
 
@@ -88,6 +96,7 @@ const Login = (props) => {
                     </div>
 
                     <button className={style.button}>Confirm</button>
+                    {(props.authError) && <FormControl errorText={'Invalid login or password'} />}
                 </form>
 
                 No account? <NavLink to='/registration'>Register</NavLink>

@@ -61,6 +61,10 @@ export const postsAPI = {
 
 export const authAPI = {
     registration(login, password) {
-        return instance.post('/register', {login, password});
+        return instance.post('register', {login, password});
+    },
+
+    login(login, password) {
+        return instance.post('login', {login, password});
     }
 };

@@ -142,6 +142,31 @@ app.post('/register', async (req, res) => {
     });
 });
 
+app.post('/login', (req, res) => {
+    const {login, password} = req.body;
+
+    const auth = 'SELECT user_id, login, hash_password FROM users WHERE login=$1';
+    connection.query(auth, [login], async (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            const data = result.rows[0];
+            
+            if (data) {
+                const areSame = await bcrypt.compare(password, data.hash_password);
+                
+                if (areSame) {
+                    res.send('SUCCESS');
+                } else {
+                    res.send('ERROR');
+                }
+            } else {
+                res.send('ERROR');
+            }
+        }
+    });
+});
+
 app.put('/editUser/:id', (req, res) => {
     const id = req.params.id;
     const {surname, name, city, profession, email, vk, telegram, about} = req.body;
