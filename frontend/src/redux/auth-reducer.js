@@ -1,5 +1,8 @@
 import {authAPI, usersAPI} from "../api/api";
+import { setDialogs, setMessages } from "./messages-reducer";
+import { setPosts } from "./posts-reducer";
 import { setUserProfile } from "./profile-reducer";
+import { setUsers } from "./subscribers-reducer";
 
 //Consts of actions
 const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
@@ -84,10 +87,20 @@ export const login = (login, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     dispatch(setAuthStatus(false));
+    
     dispatch(setUserId(null));
     dispatch(setUserLogin(null));
+    
     dispatch(setUserProfile({}));
 
+    dispatch(setUsers([]));
+
+    dispatch(setPosts([]));
+
+    dispatch(setDialogs([]));
+    dispatch(setMessages([]));
+
+    //null misic state
 };
 
 //Export profile reducer
