@@ -6,6 +6,7 @@ import Editor from './Editor';
 import { updateUserInfo } from '../../redux/profile-reducer';
 import { getIsAuth, getLogin, getUserId } from '../../redux/selectors/auth-selectors';
 import { getEditMode } from '../../redux/selectors/profile-selectors';
+import { getProfile } from '../../redux/selectors/profile-selectors';
 
 const EditorContainer = (props) => {
     const updateUserInfo = (id, surname, name, city, profession, email, vk, telegram, about) => {
@@ -15,7 +16,7 @@ const EditorContainer = (props) => {
     if (props.isAuth) {
         if (props.isEdit) {
             return (
-                <Editor id={props.id} updateUserInfo={updateUserInfo} />
+                <Editor id={props.id} updateUserInfo={updateUserInfo} profile={props.profile} />
             )
         }
         
@@ -34,7 +35,8 @@ let mapStateToProps = (state) => {
         isAuth: getIsAuth(state),
         login: getLogin(state),
         id: getUserId(state),
-        isEdit: getEditMode(state)
+        isEdit: getEditMode(state),
+        profile: getProfile(state)
     })
 }
 

@@ -3,6 +3,8 @@
 
     margin: 1em 0;
 
+    position: relative;
+
     background-color: white;
 
     border-radius: 2em;
@@ -16,6 +18,16 @@
     color: #ab9ff2;
     
     cursor: pointer;
+}
+
+.edit {
+    position: absolute;    
+    top: 1em;
+    right: 1em;
+}
+
+.edit img {
+    width: 1.5em;
 }
 
 .userInfo {

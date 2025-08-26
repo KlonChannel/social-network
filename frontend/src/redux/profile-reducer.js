@@ -7,17 +7,7 @@ const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 //Initial state
 let initialState = {
-    profile: {
-        id: 1,
-        surname: null,
-        name: null,
-        city: null,
-        profession: null,
-        email: null,
-        vk: null,
-        telegram: null,
-        about: null
-    },
+    profile: {},
     isEdit: true
 };
 
@@ -49,6 +39,7 @@ export const setEditMode = (isEdit) => ({ type: SET_EDIT_MODE, isEdit })
 export const getUserProfile = (id) => async (dispatch) => {
     const response = await usersAPI.getProfile(id);
     dispatch(setUserProfile(response.data.profile));
+    dispatch(setEditMode(true));
 };
 
 export const updateUserInfo = (id, surname, name, city, profession, email, vk, telegram, about) => async (dispatch) => {

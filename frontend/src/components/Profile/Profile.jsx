@@ -6,6 +6,7 @@ import Contact from './Contact/Contact';
 import style from './Profile.module.css';
 
 import profile from '../../assets/profile.png';
+import edit from '../../assets/edit.png';
 import location from '../../assets/location.png';
 import message from '../../assets/message.png';
 import subscribe from '../../assets/subscribe.png';
@@ -17,6 +18,11 @@ import about from '../../assets/about.png';
 const Profile = (props) => {
     return (
         <div className={style.profile}>
+            <div className={style.edit}>
+                <NavLink to='/edit'>
+                    <img src={edit} alt='edit' />
+                </NavLink>
+            </div>
             <div className={style.userInfo}>
                 <div className={style.profileImage}>
                     <img src={profile} alt='Profile image' />

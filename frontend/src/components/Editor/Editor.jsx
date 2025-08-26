@@ -5,14 +5,16 @@ import FormControl from '../common/FormControl/FormControl';
 import style from './Editor.module.css';
 
 const Registration = (props) => {
-    const [surname, setSurname] = useState('');
-    const [name, setName] = useState('');
-    const [city, setCity] = useState('');
-    const [profession, setProfession] = useState('');
-    const [email, setEmail] = useState('');
-    const [vk, setVk] = useState('');
-    const [telegram, setTelegram] = useState('');
-    const [about, setAbout] = useState('');
+    const haveProfile = !!props.profile;
+    
+    const [surname, setSurname] = useState(props.profile.surname || '');
+    const [name, setName] = useState(props.profile.name || '');
+    const [city, setCity] = useState(props.profile.city || '');
+    const [profession, setProfession] = useState(props.profile.profession || '');
+    const [email, setEmail] = useState(props.profile.email || '');
+    const [vk, setVk] = useState(props.profile.vk || '');
+    const [telegram, setTelegram] = useState(props.profile.telegram || '');
+    const [about, setAbout] = useState(props.profile.about || '');
     const [surnameDirty, setSurnameDirty] = useState(false);
     const [nameDirty, setNameDirty] = useState(false);
     const [surnameError, setSurnameError] = useState('Surname cannot be empty');
@@ -171,7 +173,7 @@ const Registration = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         
-        if (formValid) {
+        if (formValid || haveProfile) {
             props.updateUserInfo(props.id, surname, name, city, profession, email, vk, telegram, about);
         }
     };

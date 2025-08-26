@@ -1,4 +1,5 @@
 import {authAPI, usersAPI} from "../api/api";
+import { setUserProfile } from "./profile-reducer";
 
 //Consts of actions
 const SET_AUTH_STATUS = 'SET_AUTH_STATUS';
@@ -23,7 +24,7 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_AUTH_STATUS:
             return { ...state, isAuth: action.isAuth }
-
+        
         case SET_USER_LOGIN:
             return { ...state, login: action.login }
 
@@ -83,6 +84,10 @@ export const login = (login, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
     dispatch(setAuthStatus(false));
+    dispatch(setUserId(null));
+    dispatch(setUserLogin(null));
+    dispatch(setUserProfile({}));
+
 };
 
 //Export profile reducer

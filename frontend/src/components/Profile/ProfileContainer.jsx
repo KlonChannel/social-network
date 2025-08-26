@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {getProfile} from '../../redux/selectors/profile-selectors';
 
 import Profile from './Profile';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 
 const ProfileContainer = (props) => {
     const { id } = useParams();
@@ -15,6 +15,12 @@ const ProfileContainer = (props) => {
 
     const refreshProfile = (id) => {
         props.getUserProfile(id);
+    }
+
+    if (props.profile.surname === null || props.profile.name === null) {
+        return (
+            <Navigate to={'/edit'} />
+        )
     }
     
     return (
