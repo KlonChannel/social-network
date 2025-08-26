@@ -4,14 +4,17 @@ import {connect} from 'react-redux';
 import {getProfile} from '../../redux/selectors/profile-selectors';
 
 import Profile from './Profile';
+import { useParams } from 'react-router-dom';
 
 const ProfileContainer = (props) => {
+    const { id } = useParams();
+
     useEffect(() => {
-        refreshProfile();
+        refreshProfile(id);
     }, [])
 
-    const refreshProfile = () => {
-        props.getUserProfile();
+    const refreshProfile = (id) => {
+        props.getUserProfile(id);
     }
     
     return (

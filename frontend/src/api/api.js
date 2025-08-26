@@ -14,8 +14,8 @@ export const usersAPI = {
     unfollow(userId) {
         return instance.delete(`follow/${userId}`)
     },*/
-    getProfile() {
-        return profileAPI.getProfile();
+    getProfile(id) {
+        return profileAPI.getProfile(id);
     },
     getMessages() {
         return instance.get('messages');
@@ -26,8 +26,8 @@ export const usersAPI = {
 };
 
 export const profileAPI = {
-    getProfile() {
-        return instance.get('profile');
+    getProfile(id) {
+        return instance.get(`profile/${id}`);
     },
     updateProfile(id, surname, name, city, profession, email, vk, telegram, about) {
         return instance.put(`editUser/${id}`, {surname, name, city, profession, email, vk, telegram, about});

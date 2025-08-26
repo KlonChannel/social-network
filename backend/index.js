@@ -1,6 +1,6 @@
 const express = require('express');
 var cors = require('cors');
-const {Client} = require('pg');
+const { Client } = require('pg');
 const bcrypt = require('bcryptjs');
 
 const PORT = process.env.PORT || 3001;
@@ -41,18 +41,17 @@ app.get('/getUserId/:login', (req, res) => {
     });
 });
 
-app.get('/profile', (req, res) => {
-    res.json({
-        profile: {
-            id: 1,
-            surname: 'Drozdov',
-            name: 'Nikita',
-            city: 'Moscow',
-            profession: 'programmer',
-            email: 'email@email.com',
-            vk: 'https://vk.com/na.chille5',
-            telegram: 'https://t.me/klonchannel',
-            about: 'Hey! Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user. Some text about user.'
+app.get('/profile/:id', (req, res) => {
+    const id = req.params.id;
+
+    const getProfile = 'SELECT surname, name, city, profession, email, vk, telegram, about FROM users WHERE user_id=$1';
+    connection.query(getProfile, [id], (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.json({
+                profile: result.rows[0]
+            });
         }
     });
 });
@@ -121,7 +120,7 @@ app.get('/posts', (req, res) => {
 app.get('/messages', (req, res) => {
     res.json({
         messages: [
-            { id: 1, text: 'Hello', authorId: 2},
+            { id: 1, text: 'Hello', authorId: 2 },
             { id: 2, text: 'Hello! Hello!', authorId: 1 },
             { id: 3, text: 'How are you?', authorId: 1 }
         ]
@@ -129,7 +128,7 @@ app.get('/messages', (req, res) => {
 });
 
 app.post('/register', async (req, res) => {
-    const {login, password} = req.body;
+    const { login, password } = req.body;
     const hashPassword = await bcrypt.hash(password, 10);
 
     const insert = 'INSERT INTO users (login, hash_password) VALUES ($1, $2)';
@@ -143,7 +142,7 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    const {login, password} = req.body;
+    const { login, password } = req.body;
 
     const auth = 'SELECT user_id, login, hash_password FROM users WHERE login=$1';
     connection.query(auth, [login], async (err, result) => {
@@ -151,10 +150,10 @@ app.post('/login', (req, res) => {
             res.send(err);
         } else {
             const data = result.rows[0];
-            
+
             if (data) {
                 const areSame = await bcrypt.compare(password, data.hash_password);
-                
+
                 if (areSame) {
                     res.send('SUCCESS');
                 } else {
@@ -169,7 +168,7 @@ app.post('/login', (req, res) => {
 
 app.put('/editUser/:id', (req, res) => {
     const id = req.params.id;
-    const {surname, name, city, profession, email, vk, telegram, about} = req.body;
+    const { surname, name, city, profession, email, vk, telegram, about } = req.body;
 
     const update = 'UPDATE users SET surname=$1, name=$2, city=$3, profession=$4, email=$5, vk=$6, telegram=$7, about=$8 WHERE user_id=$9';
     connection.query(update, [surname, name, city, profession, email, vk, telegram, about, id], (err, result) => {

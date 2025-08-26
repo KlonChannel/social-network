@@ -17,7 +17,7 @@ import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Footer from './components/Footer/Footer';
 
-import { getIsAuth } from './redux/selectors/auth-selectors';
+import { getIsAuth, getUserId } from './redux/selectors/auth-selectors';
 
 const App = () => {
   return (
@@ -51,7 +51,7 @@ const App = () => {
   );
 }
 
-const Main = ({ children, isAuth }) => {
+const Main = ({ children, isAuth, id }) => {
   if (!isAuth) {
     return (
       <Navigate to={'/login'} />
@@ -61,7 +61,7 @@ const Main = ({ children, isAuth }) => {
   return (
     <div>
       <HeaderContainer />
-      <Menu />
+      <Menu id={id}/>
       <main>
         {children}
       </main>
@@ -72,7 +72,8 @@ const Main = ({ children, isAuth }) => {
 
 let mapStateToProps = (state) => {
     return ({
-        isAuth: getIsAuth(state)
+        isAuth: getIsAuth(state),
+        id: getUserId(state)
     })
 };
 

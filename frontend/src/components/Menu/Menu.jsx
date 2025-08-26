@@ -9,7 +9,7 @@ const Menu = (props) => {
     return (
         <nav>
             <div className={style.buttonsArea}>
-                <NavLink to='/profile' className={activeCheck}>Profile</NavLink>
+                <NavLink to={`/profile/${props.id}`} className={activeCheck}>Profile</NavLink>
                 <NavLink to='/subscribers' className={activeCheck}>Subscribers</NavLink>
                 <NavLink to='/posts' className={activeCheck}>Posts</NavLink>
                 <NavLink to='/messages' className={activeCheck}>Messages</NavLink>

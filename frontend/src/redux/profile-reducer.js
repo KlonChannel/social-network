@@ -1,4 +1,4 @@
-import {profileAPI, usersAPI} from "../api/api";
+import { profileAPI, usersAPI } from "../api/api";
 
 //Consts of actions
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -7,7 +7,17 @@ const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 //Initial state
 let initialState = {
-    profile: {},
+    profile: {
+        id: 1,
+        surname: null,
+        name: null,
+        city: null,
+        profession: null,
+        email: null,
+        vk: null,
+        telegram: null,
+        about: null
+    },
     isEdit: true
 };
 
@@ -18,7 +28,7 @@ const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_PROFILE:
             return { ...state, profile: action.profile }
-    
+
         case SET_EDIT_MODE:
             return { ...state, isEdit: action.isEdit }
         /*case SAVE_PHOTO_SUCCESS: {
@@ -36,14 +46,14 @@ export const setEditMode = (isEdit) => ({ type: SET_EDIT_MODE, isEdit })
 //export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photo });
 
 //Thunks
-export const getUserProfile = () => async (dispatch) => {
-    const response = await usersAPI.getProfile();
+export const getUserProfile = (id) => async (dispatch) => {
+    const response = await usersAPI.getProfile(id);
     dispatch(setUserProfile(response.data.profile));
 };
 
 export const updateUserInfo = (id, surname, name, city, profession, email, vk, telegram, about) => async (dispatch) => {
     const response = await profileAPI.updateProfile(id, surname, name, city, profession, email, vk, telegram, about);
-    
+
     if (response.data === 'SUCCESS') {
         dispatch(setEditMode(false));
     } else {
