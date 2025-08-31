@@ -5,8 +5,8 @@ const instance = axios.create({
 });
 
 export const usersAPI = {
-    getUsers(type) {
-        return instance.get(`subscribers?type=${type}`);
+    getUsers(type, id) {
+        return instance.get(`subscribers/${id}?type=${type}`);
     },
     /*follow(userId) {
         return instance.post(`follow/${userId}`)

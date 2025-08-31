@@ -39,11 +39,11 @@ const Subscribers = (props) => {
                 </div>
                 <div className={style.users}>
                     {
-                        props.users.map(user => <User key={user.id}
-                                                      photo={photo}
+                        props.users && props.users.map(user => <User key={user.user_id}
+                                                      photo={user.image || photo}
                                                       surname={user.surname}
                                                       name={user.name}
-                                                      location={user.location}/>
+                                                      location={user.city || 'none'}/>
                         )
                     }
                     

@@ -57,39 +57,56 @@ app.get('/profile/:id', (req, res) => {
                 profile.image = `data:image/png;base64,${profile.image.toString('base64')}`;
             }
 
-            res.json({profile});
+            res.json({ profile });
         }
     });
 });
 
-app.get('/subscribers', (req, res) => {
+app.get('/subscribers/:id', (req, res) => {
+    const id = req.params.id;
+    
     switch (req.query.type) {
-        case '?type=all':
-            res.json({
-                users: [
-                    { id: 1, surname: 'Drozdov', name: 'Nikita', location: 'Smolensk' },
-                    { id: 2, surname: 'Surname', name: 'Name', location: 'Moscow' },
-                    { id: 3, surname: 'Unknown', name: 'Unknown', location: 'Not' },
-                    { id: 4, surname: 'Wow', name: 'wow', location: 'New-York' },
-                    { id: 5, surname: 'Smith', name: 'Bob', location: 'Paris' }
-                ]
+        case '?type=all': {
+            const getUsers = `SELECT user_id, surname, name, city, image FROM users 
+            WHERE surname IS NOT NULL AND surname != '' AND user_id != $1 ORDER BY surname ASC`;
+
+            connection.query(getUsers, [id], (err, result) => {
+                if (err) {
+                    return res.send(err);
+                } else {
+                    const users = result.rows.map(user => {
+                        if (user.image) {
+                            // Создаем копию пользователя, чтобы не изменять исходный объект
+                            return {
+                                ...user,
+                                image: `data:image/png;base64,${user.image.toString('base64')}`
+                            };
+                        };
+                        
+                        return user;
+                    });
+
+                    return res.json({ users });
+                }
             });
+            break;
+        }
 
         case '?type=my':
-            res.json({
+            return res.json({
                 users: [
-                    { id: 3, surname: 'Unknown', name: 'Unknown', location: 'Not' },
-                    { id: 4, surname: 'Wow', name: 'wow', location: 'New-York' }
+                    { user_id: 3, surname: 'Unknown', name: 'Unknown', location: 'Not', image: null },
+                    { user_id: 4, surname: 'Wow', name: 'wow', location: 'New-York', image: null }
                 ]
             });
 
         case '?type=subscribers':
         default:
-            res.json({
+            return res.json({
                 users: [
-                    { id: 1, surname: 'Drozdov', name: 'Nikita', location: 'Smolensk' },
-                    { id: 2, surname: 'Surname', name: 'Name', location: 'Moscow' },
-                    { id: 5, surname: 'Smith', name: 'Bob', location: 'Paris' }
+                    { user_id: 1, surname: 'Drozdov', name: 'Nikita', location: 'Smolensk', image: null },
+                    { user_id: 2, surname: 'Surname', name: 'Name', location: 'Moscow', image: null },
+                    { user_id: 5, surname: 'Smith', name: 'Bob', location: 'Paris', image: null }
                 ]
             });
 

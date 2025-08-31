@@ -23,8 +23,8 @@ const subscribersReducer = (state = initialState, action) => {
 export const setUsers = (users) => ({ type: SET_USERS, users });
 
 //Thunks
-export const getUsers = (type) => async (dispatch) => {
-    const response = await usersAPI.getUsers(type);
+export const getUsers = (type, id) => async (dispatch) => {
+    const response = await usersAPI.getUsers(type, id);
     dispatch(setUsers(response.data.users));
 };
 
