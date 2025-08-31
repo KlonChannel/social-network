@@ -6,7 +6,7 @@ import style from './Editor.module.css';
 
 const Registration = (props) => {
     const haveProfile = !!props.profile;
-    
+
     const [surname, setSurname] = useState(props.profile.surname || '');
     const [name, setName] = useState(props.profile.name || '');
     const [city, setCity] = useState(props.profile.city || '');
@@ -28,16 +28,16 @@ const Registration = (props) => {
     const [formValid, setFormValid] = useState(false);
 
     useEffect(() => {
-            if (surnameError || nameError || cityError || professionError || emailError || vkError || telegramError || aboutError) {
-                setFormValid(false);
-            } else {
-                setFormValid(true);
-            }
+        if (surnameError || nameError || cityError || professionError || emailError || vkError || telegramError || aboutError) {
+            setFormValid(false);
+        } else {
+            setFormValid(true);
+        }
     }, [surname, name]);
 
     const surnameHandler = (e) => {
         setSurname(e.target.value);
-        
+
         const validation = /^[a-zA-Z]{1,31}$/;
 
         if (!validation.test(String(e.target.value))) {
@@ -53,12 +53,12 @@ const Registration = (props) => {
 
     const nameHandler = (e) => {
         setName(e.target.value);
-        
+
         const validation = /^[a-zA-Z]{1,31}$/;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length < 1 || e.target.value.length > 31) {
-               setNameError('The name must be between 1 and 31 characters long');
+                setNameError('The name must be between 1 and 31 characters long');
             } else {
                 setNameError('Invalid name format');
             }
@@ -69,12 +69,12 @@ const Registration = (props) => {
 
     const cityHandler = (e) => {
         setCity(e.target.value);
-        
+
         const validation = /^[a-zA-Z-]{1,31}$/;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length > 31) {
-               setCityError('The city must be less than 31 characters long');
+                setCityError('The city must be less than 31 characters long');
             } else {
                 setCityError('Invalid city format');
             }
@@ -85,12 +85,12 @@ const Registration = (props) => {
 
     const professionHandler = (e) => {
         setProfession(e.target.value);
-        
+
         const validation = /^[a-zA-Z-]{1,31}$/;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length > 31) {
-               setProfessionError('The profession must be less than 31 characters long');
+                setProfessionError('The profession must be less than 31 characters long');
             } else {
                 setProfessionError('Invalid profession format');
             }
@@ -101,12 +101,12 @@ const Registration = (props) => {
 
     const emailHandler = (e) => {
         setEmail(e.target.value);
-        
+
         const validation = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length > 127) {
-               setEmailError('The email must be less than 127 characters long');
+                setEmailError('The email must be less than 127 characters long');
             } else {
                 setEmailError('Invalid email format');
             }
@@ -117,12 +117,12 @@ const Registration = (props) => {
 
     const vkHandler = (e) => {
         setVk(e.target.value);
-        
+
         const validation = /^https?:\/\/(?:www\.)?vk\.com(?::\d+)?(?:\/[^\s]*)?$/i;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length > 255) {
-               setVkError('The VK URL must be less than 255 characters long');
+                setVkError('The VK URL must be less than 255 characters long');
             } else {
                 setVkError('Invalid VK URL format');
             }
@@ -133,12 +133,12 @@ const Registration = (props) => {
 
     const telegramHandler = (e) => {
         setTelegram(e.target.value);
-        
+
         const validation = /^https?:\/\/(?:www\.)?t\.me(?::\d+)?(?:\/[^\s]*)?$/i;
 
         if (!validation.test(String(e.target.value))) {
             if (e.target.value.length > 255) {
-               setTelegramError('The Telegram URL must be less than 255 characters long');
+                setTelegramError('The Telegram URL must be less than 255 characters long');
             } else {
                 setTelegramError('Invalid Telegram URL format');
             }
@@ -149,7 +149,7 @@ const Registration = (props) => {
 
     const aboutHandler = (e) => {
         setAbout(e.target.value);
-        
+
         const validation = /^[a-zA-Z0-9\s.,!?'"№#+=%\-:;()]+$/;
 
         if (!validation.test(String(e.target.value))) {
@@ -160,33 +160,45 @@ const Registration = (props) => {
     };
 
     const blurHandler = (e) => {
-        switch (e.target.name) {
-            case 'surname':
-                setSurnameDirty(true);
-                break;
-            case 'name':
-                setNameDirty(true);
-                break;
+        if (e.target.value === '') {
+            switch (e.target.name) {
+                case 'surname':
+                    setSurnameDirty(true);
+                    break;
+                case 'name':
+                    setNameDirty(true);
+                    break;
+            }
         }
     };
-
+    
     const submitHandler = (e) => {
         e.preventDefault();
-        
+
         if (formValid || haveProfile) {
             props.updateUserInfo(props.id, surname, name, city, profession, email, vk, telegram, about);
         }
     };
-    
+
+    const onPhotoSelected = (e) => {
+        if (e.target.files.length) {
+            props.savePhoto(e.target.files[0], props.id);
+        };
+    };
+
     return (
         <div className={style.editWindow}>
             <div className={style.editBlock}>
                 <h2 className={style.h2}>Edit profile</h2>
 
                 <form className={style.editForm} onSubmit={e => submitHandler(e)}>
+                    <div className={style.fileUpload}>
+                        <input name='file' type='file' onChange={onPhotoSelected} accept="image/*"/>
+                    </div>
+
                     <input onChange={e => surnameHandler(e)} value={surname} onBlur={e => blurHandler(e)} name='surname' placeholder='Surname' />
                     {(surnameDirty && surnameError) && <FormControl errorText={surnameError} />}
-                    
+
                     <input onChange={e => nameHandler(e)} value={name} onBlur={e => blurHandler(e)} name='name' placeholder='Name' />
                     {(nameDirty && nameError) && <FormControl errorText={nameError} />}
 

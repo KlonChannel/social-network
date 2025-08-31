@@ -8,20 +8,20 @@ import { useParams, Navigate } from 'react-router-dom';
 
 const ProfileContainer = (props) => {
     const { id } = useParams();
-
+    
     useEffect(() => {
         refreshProfile(id);
     }, [])
 
     const refreshProfile = (id) => {
         props.getUserProfile(id);
-    }
+    };
 
     if (props.profile.surname === null || props.profile.name === null) {
         return (
             <Navigate to={'/edit'} />
         )
-    }
+    };
     
     return (
         <Profile surname={props.profile.surname}
@@ -31,6 +31,7 @@ const ProfileContainer = (props) => {
                  email={props.profile.email}
                  vk={props.profile.vk}
                  telegram={props.profile.telegram}
+                 image={props.profile.image}
                  about={props.profile.about}/>
     )
 }

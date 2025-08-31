@@ -2,6 +2,7 @@ const express = require('express');
 var cors = require('cors');
 const { Client } = require('pg');
 const bcrypt = require('bcryptjs');
+const multer = require('multer');
 
 const PORT = process.env.PORT || 3001;
 
@@ -9,7 +10,9 @@ const app = express();
 
 const corsOptions = {
     origin: 'http://localhost:3000'
-}
+};
+
+const upload = multer({ storage: multer.memoryStorage() });
 
 const connection = new Client({
     host: 'localhost',
@@ -44,14 +47,17 @@ app.get('/getUserId/:login', (req, res) => {
 app.get('/profile/:id', (req, res) => {
     const id = req.params.id;
 
-    const getProfile = 'SELECT surname, name, city, profession, email, vk, telegram, about FROM users WHERE user_id=$1';
+    const getProfile = 'SELECT surname, name, city, profession, email, vk, telegram, image, about FROM users WHERE user_id=$1';
     connection.query(getProfile, [id], (err, result) => {
         if (err) {
             res.send(err);
         } else {
-            res.json({
-                profile: result.rows[0]
-            });
+            profile = result.rows[0];
+            if (profile.image) {
+                profile.image = `data:image/png;base64,${profile.image.toString('base64')}`;
+            }
+
+            res.json({profile});
         }
     });
 });
@@ -172,6 +178,19 @@ app.put('/editUser/:id', (req, res) => {
 
     const update = 'UPDATE users SET surname=$1, name=$2, city=$3, profession=$4, email=$5, vk=$6, telegram=$7, about=$8 WHERE user_id=$9';
     connection.query(update, [surname, name, city, profession, email, vk, telegram, about, id], (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send('SUCCESS');
+        }
+    });
+});
+
+app.put('/editProfilePhoto/:id', upload.single('avatar'), (req, res) => {
+    const id = req.params.id;
+
+    const update = 'UPDATE users SET image=$1 WHERE user_id=$2';
+    connection.query(update, [req.file.buffer, id], (err, result) => {
         if (err) {
             res.send(err);
         } else {

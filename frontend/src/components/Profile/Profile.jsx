@@ -23,9 +23,9 @@ const Profile = (props) => {
                     <img src={edit} alt='edit' />
                 </NavLink>
             </div>
-            <div className={style.userInfo}>
+            <div className={style.userInfo} onClick={props.updatePhoto}>
                 <div className={style.profileImage}>
-                    <img src={profile} alt='Profile image' />
+                    <img src={props.image || profile} alt='Profile image' />
                 </div>
 
                 <div className={style.mainContent}>
@@ -34,11 +34,11 @@ const Profile = (props) => {
                     </div>
 
                     <div className={style.city}>
-                        <img src={location} alt='location' /> <div>{props.city}</div>
+                        <img src={location || 'none'} alt='location' /> <div>{props.city || 'none'}</div>
                     </div>
 
                     <div>
-                        <b>Profession:</b> {props.profession}
+                        <b>Profession:</b> {props.profession || 'none'}
                     </div>
 
                     <div className={style.messageButton}>
@@ -57,11 +57,11 @@ const Profile = (props) => {
                         Contacts
                     </div>
                     
-                    <Contact src={email} alt='email' text={props.email}/>
+                    <Contact src={email} alt='email' text={props.email || 'none'}/>
 
-                    <Contact src={vk} alt='vk' text='https://vk.com' href={props.vk} />
+                    <Contact src={vk} alt='vk' text={props.vk? 'https://vk.com' : 'none'} href={props.vk} />
 
-                    <Contact src={telegram} alt='telegram' text='https://t.me' href={props.telegram} />
+                    <Contact src={telegram} alt='telegram' text={props.vk? 'https://t.me' : 'none'} href={props.telegram} />
                 </div>
 
                 <div className={style.about}>
@@ -70,7 +70,7 @@ const Profile = (props) => {
                     </div>
 
                     <div className={style.textAboutUser}>
-                        {props.about}
+                        {props.about || 'none'}
                     </div>
 
                 </div>

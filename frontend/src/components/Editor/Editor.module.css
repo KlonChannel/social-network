@@ -27,6 +27,22 @@
     margin: 0 0 0.5em 0;
 }
 
+.editForm .fileUpload input {
+    border: none;
+}
+
+.editForm .fileUpload input::file-selector-button {
+    margin-right: 0.5em;
+    padding: 0.5em;
+
+    cursor: pointer;
+
+    border: #ab9ff2;
+    border-radius: 3rem;
+
+    background-color: #ab9ff2;
+}
+
 .editForm input {
     font-size: 1.5rem;
     color: #3c315b;

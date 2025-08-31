@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import Editor from './Editor';
-import { updateUserInfo } from '../../redux/profile-reducer';
+import { updateUserInfo, savePhoto } from '../../redux/profile-reducer';
 import { getIsAuth, getLogin, getUserId } from '../../redux/selectors/auth-selectors';
 import { getEditMode } from '../../redux/selectors/profile-selectors';
 import { getProfile } from '../../redux/selectors/profile-selectors';
@@ -11,12 +11,16 @@ import { getProfile } from '../../redux/selectors/profile-selectors';
 const EditorContainer = (props) => {
     const updateUserInfo = (id, surname, name, city, profession, email, vk, telegram, about) => {
         props.updateUserInfo(id, surname, name, city, profession, email, vk, telegram, about)
-    }
+    };
+
+    const savePhoto = (file, id) => {
+        props.savePhoto(file, id);
+    };
 
     if (props.isAuth) {
         if (props.isEdit) {
             return (
-                <Editor id={props.id} updateUserInfo={updateUserInfo} profile={props.profile} />
+                <Editor id={props.id} updateUserInfo={updateUserInfo} profile={props.profile} savePhoto={savePhoto} />
             )
         }
         
@@ -40,4 +44,4 @@ let mapStateToProps = (state) => {
     })
 }
 
-export default connect(mapStateToProps, { updateUserInfo })(EditorContainer);
+export default connect(mapStateToProps, { updateUserInfo, savePhoto })(EditorContainer);

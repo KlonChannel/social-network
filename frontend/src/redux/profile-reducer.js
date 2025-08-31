@@ -21,9 +21,10 @@ const profileReducer = (state = initialState, action) => {
 
         case SET_EDIT_MODE:
             return { ...state, isEdit: action.isEdit }
-        /*case SAVE_PHOTO_SUCCESS: {
+        
+        case SAVE_PHOTO_SUCCESS: {
             return { ...state, profile: { ...state.profile, photo: action.photo } }
-        }*/
+        }
 
         default:
             return state;
@@ -33,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
 //Action creators
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setEditMode = (isEdit) => ({ type: SET_EDIT_MODE, isEdit })
-//export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photo });
+export const savePhotoSuccess = (photo) => ({ type: SAVE_PHOTO_SUCCESS, photo });
 
 //Thunks
 export const getUserProfile = (id) => async (dispatch) => {
@@ -52,13 +53,15 @@ export const updateUserInfo = (id, surname, name, city, profession, email, vk, t
     }
 };
 
-/*export const savePhoto = (file) => async (dispatch) => {
-    let response = await profileAPI.savePhoto(file);
+export const savePhoto = (file, id) => async (dispatch) => {
+    const response = await profileAPI.savePhoto(file, id);
 
-    if (response.data.resultCode === 0) {
-        dispatch(savePhotoSuccess(response.data.data.photos));
-    }
-}*/
+    /*if (response.data === 'SUCCESS') {
+        ;
+    } else {
+        dispatch(setEditMode(true));
+    }*/
+}
 
 //Export profile reducer
 export default profileReducer;
